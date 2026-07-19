@@ -250,8 +250,8 @@ function Home() {
       <section className="relative mx-auto max-w-[1400px] px-6 pb-32">
         <div className="relative surface-dark rounded-3xl overflow-hidden p-10 md:p-16">
           <div className="absolute inset-0 grid-lines opacity-40" />
-          <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-accent/20 blur-[120px]" />
-          <div className="absolute -left-20 -bottom-20 h-80 w-80 rounded-full bg-primary/20 blur-[120px]" />
+          <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-accent/20 blur-[120px] animate-aurora" />
+          <div className="absolute -left-20 -bottom-20 h-80 w-80 rounded-full bg-primary/20 blur-[120px] animate-aurora" style={{ animationDelay: "-4s" }} />
           <div className="relative grid gap-10 md:grid-cols-2 items-center">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-widest text-primary flex items-center gap-2">
