@@ -1,8 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { DnaViz } from "../components/dna-viz";
+import { NeuroHelix } from "../components/neuro-helix";
 import { NeuralBg } from "../components/neural-bg";
 import { Marquee } from "../components/marquee";
 import { Reveal, Tilt, Magnetic, CountUp } from "../components/fx";
+import heroFusion from "../assets/hero-fusion.jpg";
+import neuronCircuit from "../assets/neuron-circuit.jpg";
+import proteinAi from "../assets/protein-ai.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,15 +43,28 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden min-h-[92vh] flex items-center">
-        <div className="absolute inset-0 grid-lines opacity-30" />
-        <NeuralBg className="absolute inset-0 opacity-60" />
-        <div className="absolute right-0 top-0 h-full w-1/2 pointer-events-none hidden md:block">
-          <DnaViz className="h-full w-full animate-float-slow" />
+      <section className="relative overflow-hidden min-h-[100vh] flex items-center">
+        {/* Cinematic photographic backdrop */}
+        <div className="absolute inset-0">
+          <img
+            src={heroFusion}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 w-full h-full object-cover opacity-70 animate-ken-burns"
+          />
+          {/* dark gradient wash so text stays legible */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />
+        </div>
+        <div className="absolute inset-0 grid-lines opacity-25" />
+        <NeuralBg className="absolute inset-0 opacity-30" />
+        {/* Fusion helix → neural network viz */}
+        <div className="absolute right-0 top-0 h-full w-[62%] pointer-events-none hidden md:block">
+          <NeuroHelix className="h-full w-full animate-float-slow" />
         </div>
         {/* Aurora blobs */}
-        <div className="absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-primary/20 blur-[120px] animate-aurora" />
-        <div className="absolute right-1/4 bottom-10 h-80 w-80 rounded-full bg-accent/15 blur-[120px] animate-aurora" style={{ animationDelay: "-6s" }} />
+        <div className="absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-primary/25 blur-[120px] animate-aurora" />
+        <div className="absolute right-1/4 bottom-10 h-80 w-80 rounded-full bg-accent/20 blur-[120px] animate-aurora" style={{ animationDelay: "-6s" }} />
         <div className="absolute left-1/3 top-1/4 h-64 w-64 rounded-full bg-lime/10 blur-[100px] animate-drift" />
 
         <div className="relative mx-auto max-w-[1400px] px-6 py-20 w-full">
@@ -153,6 +169,79 @@ function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* INTERSECTION EDITORIAL — visual proof of bio × AI */}
+      <section className="relative mx-auto max-w-[1400px] px-6 pb-32">
+        <Reveal>
+          <div className="grid gap-4 md:grid-cols-12 md:auto-rows-[280px]">
+            {/* Big feature — neuron × circuit */}
+            <Tilt max={5} className="md:col-span-8 md:row-span-2">
+              <div className="relative h-full rounded-3xl overflow-hidden surface-glass group">
+                <img
+                  src={neuronCircuit}
+                  alt="A neuron whose dendrites branch into circuit traces and DNA — bio × AI"
+                  loading="lazy"
+                  width={1200}
+                  height={1200}
+                  className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-[1600ms]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-background/90 via-background/20 to-transparent" />
+                {/* scan line */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  <div className="absolute inset-x-0 h-24 bg-gradient-to-b from-transparent via-primary/15 to-transparent animate-scan" />
+                </div>
+                <div className="relative h-full flex flex-col justify-between p-8 md:p-10">
+                  <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.25em] text-primary">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+                    Neuron × Circuit × Genome
+                  </div>
+                  <div>
+                    <h3 className="font-display text-4xl md:text-6xl leading-[1] tracking-tight max-w-lg">
+                      Where <span className="italic text-gradient-animated">wetware</span> meets{" "}
+                      <span className="italic text-gradient-animated">weights</span>.
+                    </h3>
+                    <p className="mt-4 text-sm text-muted-foreground max-w-md">
+                      Every project sits at a seam — a dendrite becoming a data pipeline, a base pair
+                      becoming a token, a heartbeat becoming a feature vector.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Tilt>
+
+            {/* Protein × AI card */}
+            <Tilt max={7} className="md:col-span-4">
+              <div className="relative h-full rounded-3xl overflow-hidden surface-glass group">
+                <img
+                  src={proteinAi}
+                  alt="Protein structure overlaid with AI attention maps"
+                  loading="lazy"
+                  width={1200}
+                  height={912}
+                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-[1600ms]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                <div className="relative h-full flex flex-col justify-end p-6">
+                  <span className="font-mono text-[9px] uppercase tracking-widest text-primary">Protein × Transformer</span>
+                  <h4 className="mt-1 font-display text-2xl leading-tight">Fold. Predict. Iterate.</h4>
+                </div>
+              </div>
+            </Tilt>
+
+            {/* Live NeuroHelix mini card */}
+            <Tilt max={7} className="md:col-span-4">
+              <div className="relative h-full rounded-3xl overflow-hidden surface-dark border border-primary/30 group">
+                <NeuroHelix className="absolute inset-0 h-full w-full opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent" />
+                <div className="relative h-full flex flex-col justify-end p-6">
+                  <span className="font-mono text-[9px] uppercase tracking-widest text-primary">DNA → Network</span>
+                  <h4 className="mt-1 font-display text-2xl leading-tight">The morph is the mission.</h4>
+                </div>
+              </div>
+            </Tilt>
+          </div>
+        </Reveal>
       </section>
 
       {/* PILLARS BENTO */}
