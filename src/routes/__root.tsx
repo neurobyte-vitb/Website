@@ -255,7 +255,9 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen flex flex-col">
+      <ScrollProgress />
+      <CursorSpotlight />
+      <div className="min-h-screen flex flex-col relative">
         <SiteHeader />
         <main className="flex-1">
           <Outlet />
