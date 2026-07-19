@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Reveal, Tilt } from "../components/fx";
 
 export const Route = createFileRoute("/team")({
   head: () => ({
