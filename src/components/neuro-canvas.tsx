@@ -218,7 +218,7 @@ export function NeuroCanvas({ className }: { className?: string }) {
         ctx.fill();
       }
 
-      raf = requestAnimationFrame(step);
+      raf = requestAnimationFrame(loop);
     };
     const loop = () => {
       if (visible) step();
