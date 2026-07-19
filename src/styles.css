@@ -183,6 +183,18 @@
 .animate-drift { animation: drift 10s ease-in-out infinite; }
 .animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
 
+@keyframes ken-burns {
+  0%, 100% { transform: scale(1.05) translate(0, 0); }
+  50% { transform: scale(1.14) translate(-1.5%, -1%); }
+}
+.animate-ken-burns { animation: ken-burns 24s ease-in-out infinite; }
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+.animate-scan { animation: scan-line 6s linear infinite; }
+
 @utility text-gradient-animated {
   background: linear-gradient(90deg,
     oklch(0.95 0.01 250) 0%,
