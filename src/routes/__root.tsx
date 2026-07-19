@@ -135,34 +135,38 @@ function SiteHeader() {
             <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl -z-10" />
           </div>
           <div className="flex flex-col leading-none">
-            <span className="font-display text-lg tracking-tight text-foreground">NeuroByte</span>
-            <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground">
-              society · est.2026
+            <span className="font-display text-xl font-semibold tracking-tight text-foreground">
+              Neuro<span className="italic font-light text-gradient-bio">Byte</span>
+            </span>
+            <span className="mt-1 font-mono text-[9px] uppercase tracking-[0.35em] text-muted-foreground/80">
+              society <span className="text-primary/70">·</span> est.2026
             </span>
           </div>
         </Link>
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-0.5">
           {NAV.map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              className="group relative rounded-md px-3 py-2 font-mono text-[11px] uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
-              activeProps={{ className: "rounded-md px-3 py-2 font-mono text-[11px] uppercase tracking-widest text-primary" }}
+              className="group relative rounded-md px-3 py-2 text-sm text-foreground/70 transition-colors hover:text-foreground"
+              activeProps={{ className: "rounded-md px-3 py-2 text-sm text-primary" }}
               activeOptions={{ exact: item.to === "/" }}
             >
-              <span className="text-[9px] opacity-50 mr-1">{item.num}</span>
-              {item.label}
+              <span className="font-mono text-[10px] tracking-widest opacity-50 mr-1.5 align-middle">{item.num}</span>
+              <span className="font-display font-medium tracking-tight align-middle">{item.label}</span>
+              <span className="pointer-events-none absolute left-3 right-3 -bottom-0.5 h-px origin-left scale-x-0 bg-gradient-to-r from-primary/60 via-primary to-primary/60 transition-transform duration-300 group-hover:scale-x-100" />
             </Link>
           ))}
         </nav>
         <div className="flex items-center gap-2">
           <Link
             to="/sponsors"
-            className="hidden sm:inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-primary transition-colors hover:bg-primary/20"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 font-display text-xs font-medium tracking-wide text-primary transition-colors hover:bg-primary/20"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
             Partner
           </Link>
+
           <button
             onClick={() => setOpen((v) => !v)}
             className="lg:hidden rounded-md border border-border p-2 text-muted-foreground"
