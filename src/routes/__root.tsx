@@ -12,6 +12,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LogoMark } from "../components/logo-mark";
+import { CursorSpotlight, ScrollProgress } from "../components/fx";
 
 function NotFoundComponent() {
   return (
@@ -254,7 +255,9 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen flex flex-col">
+      <ScrollProgress />
+      <CursorSpotlight />
+      <div className="min-h-screen flex flex-col relative">
         <SiteHeader />
         <main className="flex-1">
           <Outlet />

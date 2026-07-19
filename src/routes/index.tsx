@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { DnaViz } from "../components/dna-viz";
 import { NeuralBg } from "../components/neural-bg";
 import { Marquee } from "../components/marquee";
+import { Reveal, Tilt, Magnetic, CountUp } from "../components/fx";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -16,10 +17,10 @@ export const Route = createFileRoute("/")({
 });
 
 const STATS = [
-  { k: "15", l: "Active projects", s: "spanning AI, hardware, biotech" },
-  { k: "09", l: "Launch activities", s: "in the BioGenesis event" },
-  { k: "06", l: "Domains", s: "AI · Bio · Health · Robotics" },
-  { k: "∞", l: "Curiosity", s: "the only real prerequisite" },
+  { k: 15, suffix: "", l: "Active projects", s: "spanning AI, hardware, biotech" },
+  { k: 9, suffix: "", l: "Launch activities", s: "in the BioGenesis event" },
+  { k: 6, suffix: "", l: "Domains", s: "AI · Bio · Health · Robotics" },
+  { k: 0, suffix: "∞", l: "Curiosity", s: "the only real prerequisite" },
 ];
 
 const PILLARS = [
@@ -45,22 +46,25 @@ function Home() {
         <div className="absolute right-0 top-0 h-full w-1/2 pointer-events-none hidden md:block">
           <DnaViz className="h-full w-full animate-float-slow" />
         </div>
-        <div className="absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-primary/20 blur-[120px] animate-float-slow" />
-        <div className="absolute right-1/4 bottom-10 h-80 w-80 rounded-full bg-accent/15 blur-[120px]" />
+        {/* Aurora blobs */}
+        <div className="absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-primary/20 blur-[120px] animate-aurora" />
+        <div className="absolute right-1/4 bottom-10 h-80 w-80 rounded-full bg-accent/15 blur-[120px] animate-aurora" style={{ animationDelay: "-6s" }} />
+        <div className="absolute left-1/3 top-1/4 h-64 w-64 rounded-full bg-lime/10 blur-[100px] animate-drift" />
 
         <div className="relative mx-auto max-w-[1400px] px-6 py-20 w-full">
           <div className="max-w-3xl">
             <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.3em] text-primary animate-rise">
-              <span className="h-2 w-2 rounded-full bg-primary animate-pulse-ring relative">
-                <span className="absolute inset-0 rounded-full bg-primary" />
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inset-0 rounded-full bg-primary animate-pulse-ring" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
               <span>/ VIT Bhopal · Est. 2026 · Recruiting now</span>
             </div>
             <h1 className="mt-8 font-display text-[clamp(3rem,10vw,8.5rem)] leading-[0.95] tracking-tighter animate-rise" style={{ animationDelay: "0.1s" }}>
               <span className="text-foreground">We decode</span>{" "}
-              <span className="italic text-gradient-bio">biology</span>{" "}
+              <span className="italic text-gradient-animated">biology</span>{" "}
               <span className="text-foreground">with</span>{" "}
-              <span className="italic text-gradient-bio">code</span>.
+              <span className="italic text-gradient-animated">code</span>.
             </h1>
             <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed animate-rise" style={{ animationDelay: "0.2s" }}>
               The NeuroByte Society is a student research collective at VIT Bhopal building at the
@@ -68,39 +72,51 @@ function Home() {
               healthcare — one experiment at a time.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4 animate-rise" style={{ animationDelay: "0.3s" }}>
-              <Link
-                to="/event"
-                className="group relative inline-flex items-center gap-3 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground overflow-hidden"
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] opacity-0 group-hover:opacity-100 transition-opacity" style={{ animation: "shimmer 2s linear infinite" }} />
-                <span className="relative">Explore BioGenesis</span>
-                <span className="relative">→</span>
-              </Link>
-              <Link
-                to="/projects"
-                className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-foreground hover:text-primary transition-colors"
-              >
-                <span className="h-px w-8 bg-foreground group-hover:bg-primary" />
-                See 15 projects
-              </Link>
+              <Magnetic>
+                <Link
+                  to="/event"
+                  className="group relative inline-flex items-center gap-3 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground overflow-hidden animate-glow-pulse"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] opacity-0 group-hover:opacity-100 transition-opacity" style={{ animation: "shimmer 2s linear infinite" }} />
+                  <span className="relative">Explore BioGenesis</span>
+                  <span className="relative transition-transform group-hover:translate-x-1">→</span>
+                </Link>
+              </Magnetic>
+              <Magnetic strength={0.2}>
+                <Link
+                  to="/projects"
+                  className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-foreground hover:text-primary transition-colors"
+                >
+                  <span className="h-px w-8 bg-foreground/50 group-hover:w-14 group-hover:bg-primary transition-all duration-500" />
+                  See 15 projects
+                </Link>
+              </Magnetic>
             </div>
           </div>
 
-          {/* Corner tick marks */}
-          <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 max-w-4xl animate-rise" style={{ animationDelay: "0.4s" }}>
-            {STATS.map((s) => (
-              <div key={s.l} className="border-l border-primary/40 pl-4">
-                <div className="font-display text-5xl md:text-6xl text-foreground leading-none">{s.k}</div>
-                <div className="mt-2 font-mono text-[10px] uppercase tracking-widest text-primary">{s.l}</div>
-                <div className="mt-1 text-xs text-muted-foreground">{s.s}</div>
-              </div>
+          {/* Stats with count-up */}
+          <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 max-w-4xl">
+            {STATS.map((s, i) => (
+              <Reveal key={s.l} delay={i * 120}>
+                <div className="group border-l border-primary/40 pl-4 hover:border-primary hover:pl-6 transition-all duration-500">
+                  <div className="font-display text-5xl md:text-6xl text-foreground leading-none">
+                    {s.suffix === "∞" ? (
+                      <span className="text-gradient-animated">∞</span>
+                    ) : (
+                      <CountUp to={s.k} />
+                    )}
+                  </div>
+                  <div className="mt-2 font-mono text-[10px] uppercase tracking-widest text-primary">{s.l}</div>
+                  <div className="mt-1 text-xs text-muted-foreground">{s.s}</div>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
 
         {/* Bottom scroll indicator */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground flex flex-col items-center gap-2">
-          <span>scroll</span>
+          <span className="animate-blink">scroll</span>
           <span className="h-8 w-px bg-gradient-to-b from-primary to-transparent" />
         </div>
       </section>
@@ -149,23 +165,35 @@ function Home() {
         </div>
         <div className="grid gap-4 md:grid-cols-12 md:auto-rows-[180px]">
           {PILLARS.map((p, i) => (
-            <div
+            <Reveal
               key={p.n}
-              className={`surface-glass rounded-2xl p-8 group hover:border-primary/60 transition-all duration-500 relative overflow-hidden
+              delay={i * 100}
+              className={`
                 ${i === 0 ? "md:col-span-5 md:row-span-2" : ""}
                 ${i === 1 ? "md:col-span-7" : ""}
                 ${i === 2 ? "md:col-span-4" : ""}
                 ${i === 3 ? "md:col-span-3" : ""}`}
             >
-              <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary/0 group-hover:bg-primary/20 blur-3xl transition-all duration-700" />
-              <div className="relative flex flex-col h-full justify-between">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-primary/70">{p.n}</span>
-                <div>
-                  <h3 className="font-display text-3xl md:text-4xl">{p.t}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{p.d}</p>
+              <Tilt max={6} className="h-full">
+                <div className="surface-glass rounded-2xl p-8 group hover:border-primary/60 transition-all duration-500 relative overflow-hidden h-full">
+                  <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary/0 group-hover:bg-primary/30 blur-3xl transition-all duration-700" />
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{
+                      background:
+                        "radial-gradient(600px circle at var(--mx,50%) var(--my,50%), oklch(0.7 0.25 310 / 0.1), transparent 40%)",
+                    }}
+                  />
+                  <div className="relative flex flex-col h-full justify-between">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-primary/70">{p.n}</span>
+                    <div>
+                      <h3 className="font-display text-3xl md:text-4xl transition-transform duration-500 group-hover:translate-x-1">{p.t}</h3>
+                      <p className="mt-3 text-sm text-muted-foreground">{p.d}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </Tilt>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -179,36 +207,41 @@ function Home() {
           </div>
           <Link
             to="/projects"
-            className="font-mono text-[11px] uppercase tracking-widest text-primary hover:text-foreground transition-colors"
+            className="group font-mono text-[11px] uppercase tracking-widest text-primary hover:text-foreground transition-colors inline-flex items-center gap-2"
           >
-            All projects →
+            All projects
+            <span className="transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {FEATURED.map((f, i) => (
-            <Link
-              key={f.n}
-              to="/projects"
-              className={`group relative rounded-2xl p-8 min-h-[320px] flex flex-col justify-between overflow-hidden transition-all duration-500 hover:-translate-y-1
-                ${i === 0 ? "surface-glass" : ""}
-                ${i === 1 ? "surface-dark border border-primary/40" : ""}
-                ${i === 2 ? "surface-glass" : ""}`}
-            >
-              <div className="absolute inset-0 opacity-10 group-hover:opacity-30 transition-opacity">
-                <NeuralBg className="w-full h-full" />
-              </div>
-              <div className="relative flex items-center justify-between">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-primary">Project · {f.n}</span>
-                <span className="font-mono text-[9px] uppercase tracking-widest px-2 py-1 rounded-full border border-border">{f.tag}</span>
-              </div>
-              <div className="relative">
-                <h3 className="font-display text-3xl leading-tight">{f.t}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{f.d}</p>
-                <span className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                  Read more →
-                </span>
-              </div>
-            </Link>
+            <Reveal key={f.n} delay={i * 150}>
+              <Tilt max={10}>
+                <Link
+                  to="/projects"
+                  className={`group relative rounded-2xl p-8 min-h-[320px] flex flex-col justify-between overflow-hidden transition-all duration-500
+                    ${i === 0 ? "surface-glass" : ""}
+                    ${i === 1 ? "surface-dark border border-primary/40" : ""}
+                    ${i === 2 ? "surface-glass" : ""}`}
+                >
+                  <div className="absolute inset-0 opacity-10 group-hover:opacity-40 transition-opacity duration-700">
+                    <NeuralBg className="w-full h-full" />
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+                  <div className="relative flex items-center justify-between">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-primary">Project · {f.n}</span>
+                    <span className="font-mono text-[9px] uppercase tracking-widest px-2 py-1 rounded-full border border-border">{f.tag}</span>
+                  </div>
+                  <div className="relative">
+                    <h3 className="font-display text-3xl leading-tight transition-transform duration-500 group-hover:-translate-y-1">{f.t}</h3>
+                    <p className="mt-3 text-sm text-muted-foreground">{f.d}</p>
+                    <span className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-primary opacity-0 group-hover:opacity-100 group-hover:gap-3 transition-all duration-500">
+                      Read more →
+                    </span>
+                  </div>
+                </Link>
+              </Tilt>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -217,8 +250,8 @@ function Home() {
       <section className="relative mx-auto max-w-[1400px] px-6 pb-32">
         <div className="relative surface-dark rounded-3xl overflow-hidden p-10 md:p-16">
           <div className="absolute inset-0 grid-lines opacity-40" />
-          <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-accent/20 blur-[120px]" />
-          <div className="absolute -left-20 -bottom-20 h-80 w-80 rounded-full bg-primary/20 blur-[120px]" />
+          <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-accent/20 blur-[120px] animate-aurora" />
+          <div className="absolute -left-20 -bottom-20 h-80 w-80 rounded-full bg-primary/20 blur-[120px] animate-aurora" style={{ animationDelay: "-4s" }} />
           <div className="relative grid gap-10 md:grid-cols-2 items-center">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-widest text-primary flex items-center gap-2">
@@ -235,27 +268,34 @@ function Home() {
                 photo booth.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  to="/event"
-                  className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:opacity-90"
-                >
-                  See the full lineup →
-                </Link>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm hover:bg-secondary"
-                >
-                  Register interest
-                </Link>
+                <Magnetic>
+                  <Link
+                    to="/event"
+                    className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:opacity-90"
+                  >
+                    See the full lineup
+                    <span className="transition-transform group-hover:translate-x-1">→</span>
+                  </Link>
+                </Magnetic>
+                <Magnetic strength={0.25}>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm hover:bg-secondary hover:border-primary/60 transition-colors"
+                  >
+                    Register interest
+                  </Link>
+                </Magnetic>
               </div>
             </div>
             <div className="relative">
               <div className="font-mono text-xs space-y-3">
-                {["01 · Club introduction", "02 · BioEvolution challenge", "03 · LinkedIn networking", "04 · Student benefits", "05 · Menstrual health", "06 · Mentorship corner", "07 · Photo booth", "08 · Expert talk", "09 · Jamming session"].map((line) => (
-                  <div key={line} className="flex items-center gap-3 group">
-                    <span className="h-px flex-1 bg-border" />
-                    <span className="text-foreground/80 group-hover:text-primary transition-colors">{line}</span>
-                  </div>
+                {["01 · Club introduction", "02 · BioEvolution challenge", "03 · LinkedIn networking", "04 · Student benefits", "05 · Menstrual health", "06 · Mentorship corner", "07 · Photo booth", "08 · Expert talk", "09 · Jamming session"].map((line, idx) => (
+                  <Reveal key={line} delay={idx * 60} y={8}>
+                    <div className="flex items-center gap-3 group cursor-default">
+                      <span className="h-px flex-1 bg-border group-hover:bg-primary transition-colors" />
+                      <span className="text-foreground/80 group-hover:text-primary group-hover:-translate-x-1 transition-all duration-300 inline-block">{line}</span>
+                    </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
