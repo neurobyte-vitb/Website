@@ -171,6 +171,79 @@ function Home() {
         </div>
       </section>
 
+      {/* INTERSECTION EDITORIAL — visual proof of bio × AI */}
+      <section className="relative mx-auto max-w-[1400px] px-6 pb-32">
+        <Reveal>
+          <div className="grid gap-4 md:grid-cols-12 md:auto-rows-[280px]">
+            {/* Big feature — neuron × circuit */}
+            <Tilt max={5} className="md:col-span-8 md:row-span-2">
+              <div className="relative h-full rounded-3xl overflow-hidden surface-glass group">
+                <img
+                  src={neuronCircuit}
+                  alt="A neuron whose dendrites branch into circuit traces and DNA — bio × AI"
+                  loading="lazy"
+                  width={1200}
+                  height={1200}
+                  className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-[1600ms]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-background/90 via-background/20 to-transparent" />
+                {/* scan line */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  <div className="absolute inset-x-0 h-24 bg-gradient-to-b from-transparent via-primary/15 to-transparent animate-scan" />
+                </div>
+                <div className="relative h-full flex flex-col justify-between p-8 md:p-10">
+                  <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.25em] text-primary">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+                    Neuron × Circuit × Genome
+                  </div>
+                  <div>
+                    <h3 className="font-display text-4xl md:text-6xl leading-[1] tracking-tight max-w-lg">
+                      Where <span className="italic text-gradient-animated">wetware</span> meets{" "}
+                      <span className="italic text-gradient-animated">weights</span>.
+                    </h3>
+                    <p className="mt-4 text-sm text-muted-foreground max-w-md">
+                      Every project sits at a seam — a dendrite becoming a data pipeline, a base pair
+                      becoming a token, a heartbeat becoming a feature vector.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Tilt>
+
+            {/* Protein × AI card */}
+            <Tilt max={7} className="md:col-span-4">
+              <div className="relative h-full rounded-3xl overflow-hidden surface-glass group">
+                <img
+                  src={proteinAi}
+                  alt="Protein structure overlaid with AI attention maps"
+                  loading="lazy"
+                  width={1200}
+                  height={912}
+                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-[1600ms]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                <div className="relative h-full flex flex-col justify-end p-6">
+                  <span className="font-mono text-[9px] uppercase tracking-widest text-primary">Protein × Transformer</span>
+                  <h4 className="mt-1 font-display text-2xl leading-tight">Fold. Predict. Iterate.</h4>
+                </div>
+              </div>
+            </Tilt>
+
+            {/* Live NeuroHelix mini card */}
+            <Tilt max={7} className="md:col-span-4">
+              <div className="relative h-full rounded-3xl overflow-hidden surface-dark border border-primary/30 group">
+                <NeuroHelix className="absolute inset-0 h-full w-full opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent" />
+                <div className="relative h-full flex flex-col justify-end p-6">
+                  <span className="font-mono text-[9px] uppercase tracking-widest text-primary">DNA → Network</span>
+                  <h4 className="mt-1 font-display text-2xl leading-tight">The morph is the mission.</h4>
+                </div>
+              </div>
+            </Tilt>
+          </div>
+        </Reveal>
+      </section>
+
       {/* PILLARS BENTO */}
       <section className="mx-auto max-w-[1400px] px-6 pb-32">
         <div className="flex items-end justify-between mb-10">
