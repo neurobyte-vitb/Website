@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/adilsukumar/neuro-byte-nexus/main/public/favicon.ico" alt="NeuroByte Logo" width="100"/>
+  <img src="https://api.iconify.design/lucide:brain-circuit.svg?color=%2310B981" alt="NeuroByte Logo" width="100"/>
   
   # 🧬 The NeuroByte Society
   
