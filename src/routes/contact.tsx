@@ -75,20 +75,24 @@ function Contact() {
         <div className="mt-4 surface-glass rounded-3xl p-10 relative overflow-hidden">
           <p className="font-mono text-[10px] uppercase tracking-widest text-primary">// Follow the signal</p>
           <div className="mt-6 flex flex-wrap gap-3">
-            {["LinkedIn", "Instagram", "GitHub", "X / Twitter"].map((s) => (
+            {[
+              { name: "Instagram", url: "https://instagram.com/neurobyte.vitb" },
+              { name: "LinkedIn", url: "https://linkedin.com/company/neurobyte-vitb" },
+              { name: "Website", url: "https://neurobyte.vitb.vercel.app" },
+              { name: "GitHub", url: "https://github.com/neurobyte-vitb" },
+            ].map((s) => (
               <a
-                key={s}
-                href="#"
+                key={s.name}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-3 rounded-full border border-border px-5 py-3 text-sm hover:bg-primary/10 hover:border-primary/60 transition-colors"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-muted-foreground group-hover:bg-primary" />
-                {s}
+                {s.name}
               </a>
             ))}
           </div>
-          <p className="mt-4 font-mono text-[10px] text-muted-foreground">
-            Social links will be added once accounts are live.
-          </p>
         </div>
       </section>
     </div>
