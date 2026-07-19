@@ -69,17 +69,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "A student research collective at VIT Bhopal engineering the intersection of artificial intelligence, bioinformatics, biotechnology, and healthcare.",
+          "Student research collective at VIT Bhopal decoding biology with code — AI, bioinformatics, biotech, healthcare.",
       },
-      { property: "og:title", content: "The NeuroByte Society — VIT Bhopal" },
+      { property: "og:title", content: "The NeuroByte Society — AI × Bioinformatics · VIT Bhopal" },
       {
         property: "og:description",
         content:
-          "15 projects. 9 activities. One mission — decode biology with code. Join the NeuroByte Society at VIT Bhopal.",
+          "Student research collective at VIT Bhopal decoding biology with code — AI, bioinformatics, biotech, healthcare.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "NeuroByte Society" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "The NeuroByte Society — AI × Bioinformatics · VIT Bhopal" },
+      { name: "twitter:description", content: "Student research collective at VIT Bhopal decoding biology with code — AI, bioinformatics, biotech, healthcare." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6131e3b9-de96-49ac-b486-fd80b55a5088/id-preview-1829ad61--9efbb7e9-c450-4309-b22d-1574aade8e67.lovable.app-1784484922719.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6131e3b9-de96-49ac-b486-fd80b55a5088/id-preview-1829ad61--9efbb7e9-c450-4309-b22d-1574aade8e67.lovable.app-1784484922719.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

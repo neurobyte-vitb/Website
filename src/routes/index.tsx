@@ -8,8 +8,8 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "The NeuroByte Society — AI × Bioinformatics · VIT Bhopal" },
       { name: "description", content: "Student research collective at VIT Bhopal decoding biology with code — AI, bioinformatics, biotech, healthcare." },
-      { property: "og:title", content: "The NeuroByte Society" },
-      { property: "og:description", content: "15 projects. 9 activities. One mission — decode biology with code." },
+      { property: "og:title", content: "The NeuroByte Society — AI × Bioinformatics · VIT Bhopal" },
+      { property: "og:description", content: "Student research collective at VIT Bhopal decoding biology with code — AI, bioinformatics, biotech, healthcare." },
     ],
   }),
   component: Home,
