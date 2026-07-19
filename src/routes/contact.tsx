@@ -34,7 +34,7 @@ function Contact() {
       <section className="mx-auto max-w-[1400px] px-6 py-20">
         <div className="grid gap-4 md:grid-cols-12 md:auto-rows-[220px]">
           <a
-            href="mailto:neurobyte@vitbhopal.ac.in"
+            href="mailto:adil.25mib10056@vitbhopal.ac.in"
             className="md:col-span-8 md:row-span-2 group surface-dark rounded-3xl p-10 md:p-12 relative overflow-hidden transition-all hover:-translate-y-1"
           >
             <div className="absolute inset-0 grid-lines opacity-40" />
@@ -43,10 +43,10 @@ function Contact() {
               <p className="font-mono text-[10px] uppercase tracking-widest text-primary">// Email</p>
               <div>
                 <p className="font-display text-4xl md:text-6xl break-all">
-                  neurobyte<span className="text-primary">@</span>vitbhopal.ac.in
+                  adil.25mib10056<span className="text-primary">@</span>vitbhopal.ac.in
                 </p>
                 <p className="mt-4 font-mono text-xs text-muted-foreground">
-                  ( placeholder — update once official )
+                  placeholder — update once official
                 </p>
                 <span className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-primary">
                   Send us a message →
