@@ -215,29 +215,33 @@ function Home() {
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {FEATURED.map((f, i) => (
-            <Link
-              key={f.n}
-              to="/projects"
-              className={`group relative rounded-2xl p-8 min-h-[320px] flex flex-col justify-between overflow-hidden transition-all duration-500 hover:-translate-y-1
-                ${i === 0 ? "surface-glass" : ""}
-                ${i === 1 ? "surface-dark border border-primary/40" : ""}
-                ${i === 2 ? "surface-glass" : ""}`}
-            >
-              <div className="absolute inset-0 opacity-10 group-hover:opacity-30 transition-opacity">
-                <NeuralBg className="w-full h-full" />
-              </div>
-              <div className="relative flex items-center justify-between">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-primary">Project · {f.n}</span>
-                <span className="font-mono text-[9px] uppercase tracking-widest px-2 py-1 rounded-full border border-border">{f.tag}</span>
-              </div>
-              <div className="relative">
-                <h3 className="font-display text-3xl leading-tight">{f.t}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{f.d}</p>
-                <span className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                  Read more →
-                </span>
-              </div>
-            </Link>
+            <Reveal key={f.n} delay={i * 150}>
+              <Tilt max={10}>
+                <Link
+                  to="/projects"
+                  className={`group relative rounded-2xl p-8 min-h-[320px] flex flex-col justify-between overflow-hidden transition-all duration-500
+                    ${i === 0 ? "surface-glass" : ""}
+                    ${i === 1 ? "surface-dark border border-primary/40" : ""}
+                    ${i === 2 ? "surface-glass" : ""}`}
+                >
+                  <div className="absolute inset-0 opacity-10 group-hover:opacity-40 transition-opacity duration-700">
+                    <NeuralBg className="w-full h-full" />
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+                  <div className="relative flex items-center justify-between">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-primary">Project · {f.n}</span>
+                    <span className="font-mono text-[9px] uppercase tracking-widest px-2 py-1 rounded-full border border-border">{f.tag}</span>
+                  </div>
+                  <div className="relative">
+                    <h3 className="font-display text-3xl leading-tight transition-transform duration-500 group-hover:-translate-y-1">{f.t}</h3>
+                    <p className="mt-3 text-sm text-muted-foreground">{f.d}</p>
+                    <span className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-primary opacity-0 group-hover:opacity-100 group-hover:gap-3 transition-all duration-500">
+                      Read more →
+                    </span>
+                  </div>
+                </Link>
+              </Tilt>
+            </Reveal>
           ))}
         </div>
       </section>
