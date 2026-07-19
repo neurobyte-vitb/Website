@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { NeuroHelix } from "../components/neuro-helix";
+import { NeuroCanvas } from "../components/neuro-canvas";
+import { TerminalType } from "../components/terminal-type";
 import { NeuralBg } from "../components/neural-bg";
 import { Marquee } from "../components/marquee";
 import { Reveal, Tilt, Magnetic, CountUp } from "../components/fx";
@@ -58,9 +60,9 @@ function Home() {
         </div>
         <div className="absolute inset-0 grid-lines opacity-25" />
         <NeuralBg className="absolute inset-0 opacity-30" />
-        {/* Fusion helix → neural network viz */}
-        <div className="absolute right-0 top-0 h-full w-[62%] pointer-events-none hidden md:block">
-          <NeuroHelix className="h-full w-full animate-float-slow" />
+        {/* Interactive fusion canvas — reacts to your cursor */}
+        <div className="absolute inset-0 pointer-events-auto hidden md:block">
+          <NeuroCanvas className="absolute inset-0 h-full w-full" />
         </div>
         {/* Aurora blobs */}
         <div className="absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-primary/25 blur-[120px] animate-aurora" />
