@@ -61,8 +61,12 @@ function Home() {
         <div className="absolute inset-0 grid-lines opacity-25" />
         <NeuralBg className="absolute inset-0 opacity-30" />
         {/* Interactive fusion canvas — reacts to your cursor */}
-        <div className="absolute inset-0 pointer-events-auto hidden md:block">
+        <div className="absolute right-0 top-0 h-full w-[62%] hidden md:block">
           <NeuroCanvas className="absolute inset-0 h-full w-full" />
+        </div>
+        {/* Mobile: static SVG fallback */}
+        <div className="absolute right-0 top-0 h-full w-full pointer-events-none md:hidden opacity-40">
+          <NeuroHelix className="h-full w-full" />
         </div>
         {/* Aurora blobs */}
         <div className="absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-primary/25 blur-[120px] animate-aurora" />
