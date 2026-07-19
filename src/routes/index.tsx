@@ -114,7 +114,29 @@ function Home() {
                 </Link>
               </Magnetic>
             </div>
+
+            {/* Live terminal */}
+            <div className="mt-10 max-w-xl animate-rise" style={{ animationDelay: "0.4s" }}>
+              <div className="surface-glass rounded-xl overflow-hidden">
+                <div className="flex items-center gap-1.5 px-4 py-2 border-b border-border/50">
+                  <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-lime/60" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-primary/70" />
+                  <span className="ml-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">neurobyte@vitb : ~</span>
+                </div>
+                <TerminalType
+                  className="px-4 py-3 font-mono text-xs md:text-sm text-foreground"
+                  lines={[
+                    "python fold.py --seq MKVLW... --model esm3",
+                    "curl -X POST /api/crispr/guides < target.fa",
+                    "torchrun screen.py --library zinc22 --top-k 128",
+                    "flash ecg-portable.hex --board stm32-nucleo",
+                  ]}
+                />
+              </div>
+            </div>
           </div>
+
 
           {/* Stats with count-up */}
           <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 max-w-4xl">
