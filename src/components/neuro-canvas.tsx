@@ -220,10 +220,15 @@ export function NeuroCanvas({ className }: { className?: string }) {
 
       raf = requestAnimationFrame(step);
     };
-    raf = requestAnimationFrame(step);
+    const loop = () => {
+      if (visible) step();
+      else raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
 
     return () => {
       cancelAnimationFrame(raf);
+      io.disconnect();
       window.removeEventListener("resize", onResize);
       canvas.removeEventListener("mousemove", onMove);
       canvas.removeEventListener("mouseleave", onLeave);
