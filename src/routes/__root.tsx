@@ -12,6 +12,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LogoMark } from "../components/logo-mark";
+import { CursorSpotlight, ScrollProgress } from "../components/fx";
 
 function NotFoundComponent() {
   return (
