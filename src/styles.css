@@ -105,12 +105,17 @@
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   color: transparent;
-  padding-inline: 0.04em 0.34em;
-  margin-inline: -0.04em -0.14em;
+  -webkit-text-fill-color: transparent;
+  font-style: normal !important;
+  letter-spacing: 0 !important;
+  padding-inline: 0.04em 0.5em;
+  margin-inline: -0.04em -0.18em;
   display: inline-block;
-  max-width: calc(100% + 0.28em);
-  line-height: 1.08;
+  max-width: calc(100% + 0.46em);
+  line-height: 1.18;
   overflow: visible;
+  transform: skewX(-7deg);
+  transform-origin: left center;
 }
 
 @utility surface-glass {
@@ -217,12 +222,17 @@
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-style: normal !important;
+  letter-spacing: 0 !important;
   display: inline-block;
-  padding-inline: 0.04em 0.34em;
-  margin-inline: -0.04em -0.14em;
-  max-width: calc(100% + 0.28em);
-  line-height: 1.08;
+  padding-inline: 0.04em 0.5em;
+  margin-inline: -0.04em -0.18em;
+  max-width: calc(100% + 0.46em);
+  line-height: 1.18;
   overflow: visible;
+  transform: skewX(-7deg);
+  transform-origin: left center;
   animation: gradient-shift 6s ease infinite;
 }
 
