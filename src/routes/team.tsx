@@ -170,51 +170,36 @@ function Team() {
           </span>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-12 md:auto-rows-[280px]">
-          {BOARD.map((m, i) => {
-            const layouts = [
-              "md:col-span-6 md:row-span-2",
-              "md:col-span-6",
-              "md:col-span-3",
-              "md:col-span-3",
-              "md:col-span-3",
-              "md:col-span-3",
-            ];
-            const big = i === 0;
-            return (
-              <Reveal key={m.regNo} delay={i * 80} className={layouts[i]}>
-                <Tilt max={big ? 5 : 8} className="h-full">
-                  <article
-                    className={`group relative rounded-3xl p-6 md:p-8 overflow-hidden transition-all duration-500 h-full ${
-                      big ? "surface-dark border border-primary/40" : "surface-glass"
-                    }`}
-                  >
-                    <div className={`absolute inset-0 grid-lines opacity-${big ? "40" : "20"}`} />
-                    <div className={`absolute -right-16 -top-16 h-40 w-40 rounded-full blur-3xl transition-all duration-700 ${
-                      m.tone === "primary" ? "bg-primary/20 group-hover:bg-primary/50" : "bg-accent/20 group-hover:bg-accent/50"
-                    }`} />
-                    <div className="relative h-full flex flex-col justify-between gap-4">
-                      <div className="flex items-start justify-between">
-                        <Avatar name={m.name} tone={m.tone} size={big ? "lg" : "md"} />
-                        <span className="font-mono text-[9px] uppercase tracking-widest text-primary">
-                          /{(i + 1).toString().padStart(2, "0")}
-                        </span>
-                      </div>
-                      <div>
-                        <h3 className={`font-display leading-tight ${big ? "text-4xl md:text-5xl" : "text-xl"}`}>
-                          {m.name}
-                        </h3>
-                        <p className={`mt-1 italic text-gradient-bio ${big ? "font-display text-2xl" : "text-sm"}`}>
-                          {m.role}
-                        </p>
-                        <MemberMeta m={m} />
-                      </div>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {BOARD.map((m, i) => (
+            <Reveal key={m.regNo} delay={i * 70}>
+              <Tilt max={8} className="h-full">
+                <article className="group relative h-full rounded-3xl surface-glass overflow-hidden transition-all duration-500 hover:border-primary/60">
+                  <div className="absolute inset-0 grid-lines opacity-20" />
+                  <div className={`absolute -right-12 -top-12 h-32 w-32 rounded-full blur-3xl transition-all duration-700 ${
+                    m.tone === "primary" ? "bg-primary/20 group-hover:bg-primary/45" : "bg-accent/20 group-hover:bg-accent/45"
+                  }`} />
+                  <div className="relative flex h-full flex-col p-6 md:p-7">
+                    <div className="flex items-start justify-between">
+                      <Avatar name={m.name} tone={m.tone} size="md" />
+                      <span className="font-mono text-[9px] uppercase tracking-widest text-primary">
+                        /{(i + 1).toString().padStart(2, "0")}
+                      </span>
                     </div>
-                  </article>
-                </Tilt>
-              </Reveal>
-            );
-          })}
+                    <div className="mt-6">
+                      <h3 className="font-display text-2xl leading-tight">
+                        {m.name}
+                      </h3>
+                      <p className="mt-1 text-sm italic text-gradient-bio">
+                        {m.role}
+                      </p>
+                      <MemberMeta m={m} />
+                    </div>
+                  </div>
+                </article>
+              </Tilt>
+            </Reveal>
+          ))}
         </div>
       </section>
 
