@@ -25,11 +25,11 @@ type Member = {
 };
 
 const BOARD: Member[] = [
-  { name: "Adil Sukumar", role: "President", regNo: "25MIB10056", program: "Int. M.Tech AI & Bioinformatics", batch: "2025", email: "adil.25mib10056@vitbhopal.ac.in", tone: "primary" },
-  { name: "Anakha Shaji", role: "Vice President", regNo: "25MIB10003", program: "Int. M.Tech AI & Bioinformatics", batch: "2025", email: "anakha.25mib10003@vitbhopal.ac.in", tone: "accent" },
-  { name: "Snehal Dixit", role: "Acting Secretary", regNo: "25MIP10072", program: "Int. M.Tech Computational & Data Science", batch: "2025", email: "snehal.25mip10072@vitbhopal.ac.in", tone: "primary" },
-  { name: "Riddhi Garg", role: "General Secretary", regNo: "25BHI10004", program: "B.Tech CSE (Health Informatics)", batch: "2025", email: "riddhi.25BHI10004@vitbhopal.ac.in", tone: "accent" },
-  { name: "Vishwa Namdeo Badgujar", role: "General Secretary", regNo: "25BCY10098", program: "B.Tech CSE (Cyber Security & Digital Forensics)", batch: "2025", email: "vishwa.25bcy10098@vitbhopal.ac.in", tone: "primary" },
+  { name: "Adil Sukumar", role: "President", regNo: "25MIB10056", program: "Int. M.Tech AI & Bioinformatics", batch: "2025", email: "adil.25mib10056@vitbhopal.ac.in", linkedin: "https://linkedin.com/in/adilsukumar", tone: "primary" },
+  { name: "Anakha Shaji", role: "Vice President", regNo: "25MIB10003", program: "Int. M.Tech AI & Bioinformatics", batch: "2025", email: "anakha.25mib10003@vitbhopal.ac.in", linkedin: "https://www.linkedin.com/in/anakha-shaji-8361b3387/", tone: "accent" },
+  { name: "Snehal Dixit", role: "Joint Secretary", regNo: "25MIP10072", program: "Int. M.Tech Computational & Data Science", batch: "2025", email: "snehal.25mip10072@vitbhopal.ac.in", linkedin: "https://linkedin.com/in/snehaldixitofficial", tone: "primary" },
+  { name: "Riddhi Garg", role: "General Secretary", regNo: "25BHI10004", program: "B.Tech CSE (Health Informatics)", batch: "2025", email: "riddhi.25BHI10004@vitbhopal.ac.in", linkedin: "https://www.linkedin.com/in/riddhigarg--/", tone: "accent" },
+  { name: "Vishwa Namdeo Badgujar", role: "General Secretary", regNo: "25BCY10098", program: "B.Tech CSE (Cyber Security & Digital Forensics)", batch: "2025", email: "vishwa.25bcy10098@vitbhopal.ac.in", linkedin: "https://www.linkedin.com/in/vishwa-badgujar-bb747037b/", tone: "primary" },
   { name: "Trisha Kapadia", role: "Treasurer", regNo: "24BAI10659", program: "B.Tech CSE (AIML)", batch: "2024", email: "trisha.24bai10659@vitbhopal.ac.in", tone: "accent" },
 ];
 
