@@ -143,34 +143,37 @@ function Team() {
             ];
             const big = i === 0;
             return (
-              <article
-                key={m.regNo}
-                className={`group relative rounded-3xl p-6 md:p-8 overflow-hidden transition-all duration-500 hover:-translate-y-1 ${layouts[i]} ${
-                  big ? "surface-dark border border-primary/40" : "surface-glass"
-                }`}
-              >
-                <div className={`absolute inset-0 grid-lines opacity-${big ? "40" : "20"}`} />
-                <div className={`absolute -right-16 -top-16 h-40 w-40 rounded-full blur-3xl transition-all duration-700 ${
-                  m.tone === "primary" ? "bg-primary/20 group-hover:bg-primary/40" : "bg-accent/20 group-hover:bg-accent/40"
-                }`} />
-                <div className="relative h-full flex flex-col justify-between gap-4">
-                  <div className="flex items-start justify-between">
-                    <Avatar name={m.name} tone={m.tone} size={big ? "lg" : "md"} />
-                    <span className="font-mono text-[9px] uppercase tracking-widest text-primary">
-                      /{(i + 1).toString().padStart(2, "0")}
-                    </span>
-                  </div>
-                  <div>
-                    <h3 className={`font-display leading-tight ${big ? "text-4xl md:text-5xl" : "text-xl"}`}>
-                      {m.name}
-                    </h3>
-                    <p className={`mt-1 italic text-gradient-bio ${big ? "font-display text-2xl" : "text-sm"}`}>
-                      {m.role}
-                    </p>
-                    <MemberMeta m={m} />
-                  </div>
-                </div>
-              </article>
+              <Reveal key={m.regNo} delay={i * 80} className={layouts[i]}>
+                <Tilt max={big ? 5 : 8} className="h-full">
+                  <article
+                    className={`group relative rounded-3xl p-6 md:p-8 overflow-hidden transition-all duration-500 h-full ${
+                      big ? "surface-dark border border-primary/40" : "surface-glass"
+                    }`}
+                  >
+                    <div className={`absolute inset-0 grid-lines opacity-${big ? "40" : "20"}`} />
+                    <div className={`absolute -right-16 -top-16 h-40 w-40 rounded-full blur-3xl transition-all duration-700 ${
+                      m.tone === "primary" ? "bg-primary/20 group-hover:bg-primary/50" : "bg-accent/20 group-hover:bg-accent/50"
+                    }`} />
+                    <div className="relative h-full flex flex-col justify-between gap-4">
+                      <div className="flex items-start justify-between">
+                        <Avatar name={m.name} tone={m.tone} size={big ? "lg" : "md"} />
+                        <span className="font-mono text-[9px] uppercase tracking-widest text-primary">
+                          /{(i + 1).toString().padStart(2, "0")}
+                        </span>
+                      </div>
+                      <div>
+                        <h3 className={`font-display leading-tight ${big ? "text-4xl md:text-5xl" : "text-xl"}`}>
+                          {m.name}
+                        </h3>
+                        <p className={`mt-1 italic text-gradient-bio ${big ? "font-display text-2xl" : "text-sm"}`}>
+                          {m.role}
+                        </p>
+                        <MemberMeta m={m} />
+                      </div>
+                    </div>
+                  </article>
+                </Tilt>
+              </Reveal>
             );
           })}
         </div>
