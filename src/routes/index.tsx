@@ -7,9 +7,25 @@ import { Marquee } from "../components/marquee";
 import { Reveal, Tilt, Magnetic, CountUp } from "../components/fx";
 import { ShaderGradient } from "../components/shader-gradient";
 import { Scramble } from "../components/scramble";
+import { FloatingGallery } from "../components/floating-gallery";
 import heroFusion from "../assets/hero-fusion.jpg";
 import neuronCircuit from "../assets/neuron-circuit.jpg";
 import proteinAi from "../assets/protein-ai.jpg";
+import synapseCircuit from "../assets/synapse-circuit.jpg";
+import dnaChrome from "../assets/dna-chrome.jpg";
+import heartTransformer from "../assets/heart-transformer.jpg";
+import petriNetwork from "../assets/petri-network.jpg";
+import brainDna from "../assets/brain-dna.jpg";
+import chromosomeMesh from "../assets/chromosome-mesh.jpg";
+
+const GALLERY = [
+  { src: synapseCircuit, alt: "Synapse merging with circuit", tag: "Synapse × Silicon", caption: "Where signals learn to think." },
+  { src: petriNetwork, alt: "Petri dish with neural network", tag: "In vitro · In silico", caption: "Culturing intelligence." },
+  { src: dnaChrome, alt: "Chrome DNA helix with code", tag: "Helix · Bytecode", caption: "The genome, compiled." },
+  { src: heartTransformer, alt: "Heart cell with transformer diagram", tag: "Cardio × Attention", caption: "Every heartbeat is a token." },
+  { src: brainDna, alt: "Translucent brain with DNA", tag: "Cognition · Genome", caption: "Wet-wired inference." },
+  { src: chromosomeMesh, alt: "Chromosomes wrapped in neural mesh", tag: "Chromatin · Mesh", caption: "Structure is memory." },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -420,6 +436,62 @@ function Home() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FULL-BLEED CINEMATIC PARALLAX BAND */}
+      <section className="relative py-32 overflow-hidden">
+        <div className="mx-auto max-w-[1400px] px-6 mb-12 flex items-end justify-between flex-wrap gap-4">
+          <div>
+            <p className="font-mono text-[10px] uppercase tracking-widest text-primary">[ 04 ] Signal archive</p>
+            <h2 className="mt-3 font-display text-4xl md:text-6xl leading-[1] tracking-tight">
+              Six frames from the <span className="italic text-gradient-animated">frontier</span>.
+            </h2>
+          </div>
+          <p className="max-w-sm text-sm text-muted-foreground">
+            An evolving visual index of the seams we chase — biology becoming code, code becoming biology.
+          </p>
+        </div>
+        <FloatingGallery items={GALLERY} />
+      </section>
+
+      {/* PINNED CINEMATIC EDITORIAL — brain × DNA */}
+      <section className="relative overflow-hidden">
+        <div className="relative min-h-[90vh] flex items-center">
+          <img
+            src={brainDna}
+            alt="Translucent brain filled with DNA and code"
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover opacity-60 animate-ken-burns"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
+          <div className="absolute inset-0 grid-lines opacity-20" />
+          <div className="relative mx-auto max-w-[1400px] px-6 py-24 w-full">
+            <Reveal>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-primary">[ 05 ] Thesis</p>
+              <h2 className="mt-6 font-display text-5xl md:text-8xl leading-[0.95] tracking-tighter max-w-4xl">
+                The next model won't be trained.<br />
+                It will be <span className="italic text-gradient-animated">grown</span>.
+              </h2>
+              <p className="mt-10 max-w-xl text-lg text-muted-foreground leading-relaxed">
+                We treat every project like a cell line — small, curious, mutable. Some die. Some
+                divide. The ones that survive get papers, prototypes, and public write-ups.
+              </p>
+              <div className="mt-10 grid grid-cols-3 gap-6 max-w-2xl">
+                {[
+                  { k: "λ", l: "wavelength / research" },
+                  { k: "Σ", l: "sum / collaboration" },
+                  { k: "∇", l: "gradient / iteration" },
+                ].map((s) => (
+                  <div key={s.k} className="border-l border-primary/40 pl-4">
+                    <div className="font-display text-5xl text-gradient-animated">{s.k}</div>
+                    <div className="mt-1 font-mono text-[9px] uppercase tracking-widest text-muted-foreground">{s.l}</div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
