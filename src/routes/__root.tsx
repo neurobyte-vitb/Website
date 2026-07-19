@@ -10,7 +10,6 @@ import {
 import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LogoMark } from "../components/logo-mark";
 import { CursorSpotlight, ScrollProgress } from "../components/fx";
 import { CustomCursor } from "../components/custom-cursor";
@@ -40,7 +39,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    // Error reporting removed
   }, [error]);
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -85,8 +84,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "The NeuroByte Society — VIT Bhopal" },
       { name: "twitter:description", content: "Student research collective at VIT Bhopal decoding biology with code — AI, bioinformatics, biotech, healthcare." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6131e3b9-de96-49ac-b486-fd80b55a5088/id-preview-1829ad61--9efbb7e9-c450-4309-b22d-1574aade8e67.lovable.app-1784484922719.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6131e3b9-de96-49ac-b486-fd80b55a5088/id-preview-1829ad61--9efbb7e9-c450-4309-b22d-1574aade8e67.lovable.app-1784484922719.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
