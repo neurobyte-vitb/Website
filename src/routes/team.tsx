@@ -20,16 +20,17 @@ type Member = {
   program: string;
   batch: string;
   email: string;
+  linkedin?: string;
   tone: "primary" | "accent";
 };
 
 const BOARD: Member[] = [
   { name: "Adil Sukumar", role: "President", regNo: "25MIB10056", program: "Int. M.Tech AI & Bioinformatics", batch: "2025", email: "adil.25mib10056@vitbhopal.ac.in", tone: "primary" },
   { name: "Anakha Shaji", role: "Vice President", regNo: "25MIB10003", program: "Int. M.Tech AI & Bioinformatics", batch: "2025", email: "anakha.25mib10003@vitbhopal.ac.in", tone: "accent" },
-  { name: "Snehal Dixit", role: "Joint Secretary", regNo: "25MIP10072", program: "Int. M.Tech Computational & Data Science", batch: "2025", email: "snehal.25mip10072@vitbhopal.ac.in", tone: "primary" },
-  { name: "Namrata Gowda", role: "General Secretary", regNo: "25BHI10004", program: "B.Tech CSE (Health Informatics)", batch: "2025", email: "riddhi.25BHI10004@vitbhopal.ac.in", tone: "accent" },
+  { name: "Snehal Dixit", role: "Acting Secretary", regNo: "25MIP10072", program: "Int. M.Tech Computational & Data Science", batch: "2025", email: "snehal.25mip10072@vitbhopal.ac.in", tone: "primary" },
+  { name: "Riddhi Garg", role: "General Secretary", regNo: "25BHI10004", program: "B.Tech CSE (Health Informatics)", batch: "2025", email: "riddhi.25BHI10004@vitbhopal.ac.in", tone: "accent" },
   { name: "Vishwa Namdeo Badgujar", role: "General Secretary", regNo: "25BCY10098", program: "B.Tech CSE (Cyber Security & Digital Forensics)", batch: "2025", email: "vishwa.25bcy10098@vitbhopal.ac.in", tone: "primary" },
-  { name: "Trisha Kapoor", role: "Treasurer", regNo: "24BAI10659", program: "B.Tech CSE (AIML)", batch: "2024", email: "trisha.24bai10659@vitbhopal.ac.in", tone: "accent" },
+  { name: "Trisha Kapadia", role: "Treasurer", regNo: "24BAI10659", program: "B.Tech CSE (AIML)", batch: "2024", email: "trisha.24bai10659@vitbhopal.ac.in", tone: "accent" },
 ];
 
 type Vertical = {
@@ -43,32 +44,32 @@ const VERTICALS: Vertical[] = [
   {
     name: "AI / ML",
     tag: "models · pipelines · inference",
-    lead: { name: "Naivedya Singh", role: "Lead", regNo: "25BAI10770", program: "B.Tech CSE (AIML)", batch: "2025", email: "naivedya.25bai10770@vitbhopal.ac.in", tone: "primary" },
-    coLead: { name: "Devashish Rege", role: "Co-Lead", regNo: "25BCE10799", program: "B.Tech CSE (Core)", batch: "2025", email: "devashish.25bce10799@vitbhopal.ac.in", tone: "accent" },
+    lead: { name: "Naivedya Singh", role: "Lead", regNo: "25BAI10770", program: "B.Tech CSE (AIML)", batch: "2025", email: "naivedya.25bai10770@vitbhopal.ac.in", linkedin: "https://www.linkedin.com/in/naivedya-singh-5005a4366", tone: "primary" },
+    coLead: { name: "Devashish Rege", role: "Co-Lead", regNo: "25BCE10799", program: "B.Tech CSE (Core)", batch: "2025", email: "devashish.25bce10799@vitbhopal.ac.in", linkedin: "https://www.linkedin.com/in/devashish-rege", tone: "accent" },
   },
   {
     name: "Research & Projects",
     tag: "papers · prototypes · experiments",
-    lead: { name: "Gauri Nandana M", role: "Lead", regNo: "25BAI10053", program: "B.Tech CSE (AIML)", batch: "2025", email: "gauri.25bai10053@vitbhopal.ac.in", tone: "accent" },
-    coLead: { name: "Vaswati Mohanty", role: "Co-Lead", regNo: "25BOE10084", program: "B.Tech Bioengineering", batch: "2025", email: "vaswati.25boe10084@vitbhopal.ac.in", tone: "primary" },
+    lead: { name: "Gauri Nandana M", role: "Lead", regNo: "25BAI10053", program: "B.Tech CSE (AIML)", batch: "2025", email: "gauri.25bai10053@vitbhopal.ac.in", linkedin: "https://www.linkedin.com/in/gauri-nandana-m-463b6b378/", tone: "accent" },
+    coLead: { name: "Vaswati Mohanty", role: "Co-Lead", regNo: "25BOE10084", program: "B.Tech Bioengineering", batch: "2025", email: "vaswati.25boe10084@vitbhopal.ac.in", linkedin: "https://www.linkedin.com/in/vaswati-mohanty-2b606637b/", tone: "primary" },
   },
   {
     name: "Event Coordination",
     tag: "logistics · programming · execution",
-    lead: { name: "Heeral Jinwani", role: "Lead", regNo: "24BHI10009", program: "B.Tech CSE (Health Informatics)", batch: "2024", email: "heeral.24bhi10009@vitbhopal.ac.in", tone: "primary" },
-    coLead: { name: "L Akash", role: "Co-Lead", regNo: "25BHI10110", program: "B.Tech CSE (Health Informatics)", batch: "2025", email: "akash.25bhi10110@vitbhopal.ac.in", tone: "accent" },
+    lead: { name: "Heeral Jinwani", role: "Lead", regNo: "24BHI10009", program: "B.Tech CSE (Health Informatics)", batch: "2024", email: "heeral.24bhi10009@vitbhopal.ac.in", linkedin: "https://www.linkedin.com/in/heeral-jiwnani-637574310/", tone: "primary" },
+    coLead: { name: "L Akash", role: "Co-Lead", regNo: "25BHI10110", program: "B.Tech CSE (Health Informatics)", batch: "2025", email: "akash.25bhi10110@vitbhopal.ac.in", linkedin: "https://www.linkedin.com/in/lakshmana-akash-961a5937a/", tone: "accent" },
   },
   {
     name: "Student Coordination",
     tag: "outreach · community · onboarding",
-    lead: { name: "Gazal", role: "Lead", regNo: "24BCE11002", program: "B.Tech CSE (Core)", batch: "2024", email: "gazal.24bce11002@vitbhopal.ac.in", tone: "accent" },
-    coLead: { name: "Ashwin S Pillai", role: "Co-Lead", regNo: "25MIM10085", program: "Int. M.Tech AI", batch: "2025", email: "ashwin.25mim@vitbhopal.ac.in", tone: "primary" },
+    lead: { name: "Gazal", role: "Lead", regNo: "24BCE11002", program: "B.Tech CSE (Core)", batch: "2024", email: "gazal.24bce11002@vitbhopal.ac.in", linkedin: "https://www.linkedin.com/in/gazal-gazal1509", tone: "accent" },
+    coLead: { name: "Ashwin S Pillai", role: "Co-Lead", regNo: "25MIM10085", program: "Int. M.Tech AI", batch: "2025", email: "ashwin.25mim@vitbhopal.ac.in", linkedin: "https://www.linkedin.com/in/ashwin-pillai-b496492b9/", tone: "primary" },
   },
   {
     name: "Media & Publications",
     tag: "design · content · storytelling",
-    lead: { name: "Mayank Trigunayat", role: "Lead", regNo: "25BCY10182", program: "B.Tech CSE (Cyber Security & Digital Forensics)", batch: "2025", email: "mayank.25bcy10182@vitbhopal.ac.in", tone: "primary" },
-    coLead: { name: "Niya Saji", role: "Co-Lead", regNo: "25MIB10017", program: "Int. M.Tech AI & Bioinformatics", batch: "2025", email: "niya.25mib10017@vitbhopal.ac.in", tone: "accent" },
+    lead: { name: "Mayank Trigunayat", role: "Lead", regNo: "25BCY10182", program: "B.Tech CSE (Cyber Security & Digital Forensics)", batch: "2025", email: "mayank.25bcy10182@vitbhopal.ac.in", linkedin: "https://www.linkedin.com/in/mayank-trigunayat-abbba9375/", tone: "primary" },
+    coLead: { name: "Niya Saji", role: "Co-Lead", regNo: "25MIB10017", program: "Int. M.Tech AI & Bioinformatics", batch: "2025", email: "niya.25mib10017@vitbhopal.ac.in", linkedin: "https://www.linkedin.com/in/niya-saji-4a077339b/", tone: "accent" },
   },
 ];
 
@@ -86,14 +87,36 @@ function Avatar({ name, tone, size = "md" }: { name: string; tone: "primary" | "
   );
 }
 
+function LinkedInLink({ href }: { href: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LinkedIn profile"
+      className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/10 px-2.5 py-1 font-mono text-[9px] uppercase tracking-widest text-primary hover:bg-primary/20 hover:border-primary transition-colors"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" className="h-3 w-3">
+        <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3v9zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
+      </svg>
+      LinkedIn
+    </a>
+  );
+}
+
 function MemberMeta({ m }: { m: Member }) {
   return (
-    <div className="mt-3 space-y-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+    <div className="mt-3 space-y-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
       <div>{m.regNo} · Batch {m.batch}</div>
       <div className="normal-case tracking-wide text-foreground/70">{m.program}</div>
       <a href={`mailto:${m.email}`} className="block normal-case tracking-normal text-primary hover:underline break-all">
         {m.email}
       </a>
+      {m.linkedin && (
+        <div className="pt-1">
+          <LinkedInLink href={m.linkedin} />
+        </div>
+      )}
     </div>
   );
 }
@@ -134,12 +157,12 @@ function Team() {
         <div className="grid gap-4 md:grid-cols-12 md:auto-rows-[280px]">
           {BOARD.map((m, i) => {
             const layouts = [
-              "md:col-span-6 md:row-span-2", // President
-              "md:col-span-6",                // VP
-              "md:col-span-3",                // Joint Secretary
-              "md:col-span-3",                // GS
-              "md:col-span-3",                // GS
-              "md:col-span-3",                // Treasurer
+              "md:col-span-6 md:row-span-2",
+              "md:col-span-6",
+              "md:col-span-3",
+              "md:col-span-3",
+              "md:col-span-3",
+              "md:col-span-3",
             ];
             const big = i === 0;
             return (
@@ -200,7 +223,6 @@ function Team() {
                 <div className="absolute inset-0 grid-lines opacity-15" />
                 <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-primary via-accent to-lime scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-700" />
                 <div className="relative grid gap-6 md:grid-cols-12 p-6 md:p-8">
-                  {/* Label */}
                   <div className="md:col-span-3 flex md:flex-col justify-between md:justify-start gap-4 md:border-r md:border-border/40 md:pr-6">
                     <div>
                       <span className="font-mono text-[10px] uppercase tracking-widest text-primary">
@@ -213,7 +235,6 @@ function Team() {
                     </div>
                   </div>
 
-                  {/* Lead */}
                   <div className="md:col-span-5 flex gap-4 items-start md:border-r md:border-border/40 md:pr-6">
                     <Avatar name={v.lead.name} tone={v.lead.tone} />
                     <div className="min-w-0">
@@ -223,7 +244,6 @@ function Team() {
                     </div>
                   </div>
 
-                  {/* Co-Lead */}
                   <div className="md:col-span-4 flex gap-4 items-start">
                     <Avatar name={v.coLead.name} tone={v.coLead.tone} />
                     <div className="min-w-0">
