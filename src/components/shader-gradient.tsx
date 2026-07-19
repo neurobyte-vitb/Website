@@ -83,16 +83,21 @@ export function ShaderGradient({ className = "" }: { className?: string }) {
 
     const start = performance.now();
     let raf = 0;
+    let visible = true;
+    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: 0 });
+    io.observe(canvas);
     const tick = () => {
-      const t = (performance.now() - start) / 1000;
-      gl.uniform2f(uR, canvas.width, canvas.height);
-      gl.uniform1f(uT, reduced ? 0 : t);
-      gl.uniform2f(uM, mouse.x, mouse.y);
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      if (visible) {
+        const t = (performance.now() - start) / 1000;
+        gl.uniform2f(uR, canvas.width, canvas.height);
+        gl.uniform1f(uT, reduced ? 0 : t);
+        gl.uniform2f(uM, mouse.x, mouse.y);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      }
       raf = requestAnimationFrame(tick);
     };
     tick();
-    return () => { cancelAnimationFrame(raf); ro.disconnect(); window.removeEventListener("mousemove", onMove); };
+    return () => { cancelAnimationFrame(raf); ro.disconnect(); io.disconnect(); window.removeEventListener("mousemove", onMove); };
   }, []);
 
   return <canvas ref={ref} className={className} aria-hidden />;
