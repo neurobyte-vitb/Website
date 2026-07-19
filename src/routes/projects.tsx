@@ -3,10 +3,10 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects — The NeuroByte Society" },
-      { name: "description", content: "Fifteen student projects across AI, bioinformatics, biomedical devices, agri-tech, and 3D printing." },
-      { property: "og:title", content: "Projects — The NeuroByte Society" },
-      { property: "og:description", content: "The full 15-project slate for the academic year." },
+      { title: "Future Projects — The NeuroByte Society" },
+      { name: "description", content: "Fifteen upcoming student projects across AI, bioinformatics, biomedical devices, agri-tech, and 3D printing — the slate we're about to build." },
+      { property: "og:title", content: "Future Projects — The NeuroByte Society" },
+      { property: "og:description", content: "The 15-project slate we're about to build this academic year." },
     ],
   }),
   component: Projects,
@@ -40,16 +40,22 @@ function Projects() {
         <div className="absolute inset-0 grid-lines opacity-30" />
         <div className="absolute top-20 right-10 h-72 w-72 rounded-full bg-primary/15 blur-[120px]" />
         <div className="relative mx-auto max-w-[1400px] px-6 py-24 md:py-32">
-          <p className="font-mono text-[10px] uppercase tracking-widest text-primary">[ 02 ] Projects · 15</p>
+          <p className="font-mono text-[10px] uppercase tracking-widest text-primary">[ 02 ] Future Projects · 15 · Upcoming</p>
           <h1 className="mt-6 font-display text-[clamp(2.5rem,8vw,7rem)] leading-[0.95] tracking-tighter max-w-5xl">
-            Fifteen projects, one <span className="italic text-gradient-bio">interdisciplinary</span> vision.
+            Fifteen projects we're <span className="italic text-gradient-bio">about to build</span>.
           </h1>
           <p className="mt-8 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            Members work in small teams across research, prototyping, and hackathons. Bring your
-            CS, wet-lab thinking, hardware, or design skills — every project is open.
+            This is our upcoming slate — nothing shipped yet. Members will work in small teams across
+            research, prototyping, and hackathons. Bring your CS, wet-lab thinking, hardware, or design
+            skills — every project below is open and waiting for a team.
           </p>
+          <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 font-mono text-[10px] uppercase tracking-widest text-primary">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+            Status · Planned / Recruiting
+          </div>
         </div>
       </section>
+
 
       {/* GRID */}
       <section className="mx-auto max-w-[1400px] px-6 py-16">
