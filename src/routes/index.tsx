@@ -268,27 +268,34 @@ function Home() {
                 photo booth.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  to="/event"
-                  className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:opacity-90"
-                >
-                  See the full lineup →
-                </Link>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm hover:bg-secondary"
-                >
-                  Register interest
-                </Link>
+                <Magnetic>
+                  <Link
+                    to="/event"
+                    className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:opacity-90"
+                  >
+                    See the full lineup
+                    <span className="transition-transform group-hover:translate-x-1">→</span>
+                  </Link>
+                </Magnetic>
+                <Magnetic strength={0.25}>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm hover:bg-secondary hover:border-primary/60 transition-colors"
+                  >
+                    Register interest
+                  </Link>
+                </Magnetic>
               </div>
             </div>
             <div className="relative">
               <div className="font-mono text-xs space-y-3">
-                {["01 · Club introduction", "02 · BioEvolution challenge", "03 · LinkedIn networking", "04 · Student benefits", "05 · Menstrual health", "06 · Mentorship corner", "07 · Photo booth", "08 · Expert talk", "09 · Jamming session"].map((line) => (
-                  <div key={line} className="flex items-center gap-3 group">
-                    <span className="h-px flex-1 bg-border" />
-                    <span className="text-foreground/80 group-hover:text-primary transition-colors">{line}</span>
-                  </div>
+                {["01 · Club introduction", "02 · BioEvolution challenge", "03 · LinkedIn networking", "04 · Student benefits", "05 · Menstrual health", "06 · Mentorship corner", "07 · Photo booth", "08 · Expert talk", "09 · Jamming session"].map((line, idx) => (
+                  <Reveal key={line} delay={idx * 60} y={8}>
+                    <div className="flex items-center gap-3 group cursor-default">
+                      <span className="h-px flex-1 bg-border group-hover:bg-primary transition-colors" />
+                      <span className="text-foreground/80 group-hover:text-primary group-hover:-translate-x-1 transition-all duration-300 inline-block">{line}</span>
+                    </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
