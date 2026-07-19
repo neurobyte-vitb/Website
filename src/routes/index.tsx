@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { NeuroHelix } from "../components/neuro-helix";
+import { NeuroCanvas } from "../components/neuro-canvas";
+import { TerminalType } from "../components/terminal-type";
 import { NeuralBg } from "../components/neural-bg";
 import { Marquee } from "../components/marquee";
 import { Reveal, Tilt, Magnetic, CountUp } from "../components/fx";
@@ -58,9 +60,13 @@ function Home() {
         </div>
         <div className="absolute inset-0 grid-lines opacity-25" />
         <NeuralBg className="absolute inset-0 opacity-30" />
-        {/* Fusion helix → neural network viz */}
-        <div className="absolute right-0 top-0 h-full w-[62%] pointer-events-none hidden md:block">
-          <NeuroHelix className="h-full w-full animate-float-slow" />
+        {/* Interactive fusion canvas — reacts to your cursor */}
+        <div className="absolute right-0 top-0 h-full w-[62%] hidden md:block">
+          <NeuroCanvas className="absolute inset-0 h-full w-full" />
+        </div>
+        {/* Mobile: static SVG fallback */}
+        <div className="absolute right-0 top-0 h-full w-full pointer-events-none md:hidden opacity-40">
+          <NeuroHelix className="h-full w-full" />
         </div>
         {/* Aurora blobs */}
         <div className="absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-primary/25 blur-[120px] animate-aurora" />
@@ -108,7 +114,29 @@ function Home() {
                 </Link>
               </Magnetic>
             </div>
+
+            {/* Live terminal */}
+            <div className="mt-10 max-w-xl animate-rise" style={{ animationDelay: "0.4s" }}>
+              <div className="surface-glass rounded-xl overflow-hidden">
+                <div className="flex items-center gap-1.5 px-4 py-2 border-b border-border/50">
+                  <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-lime/60" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-primary/70" />
+                  <span className="ml-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">neurobyte@vitb : ~</span>
+                </div>
+                <TerminalType
+                  className="px-4 py-3 font-mono text-xs md:text-sm text-foreground"
+                  lines={[
+                    "python fold.py --seq MKVLW... --model esm3",
+                    "curl -X POST /api/crispr/guides < target.fa",
+                    "torchrun screen.py --library zinc22 --top-k 128",
+                    "flash ecg-portable.hex --board stm32-nucleo",
+                  ]}
+                />
+              </div>
+            </div>
           </div>
+
 
           {/* Stats with count-up */}
           <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 max-w-4xl">
