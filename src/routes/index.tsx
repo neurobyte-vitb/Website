@@ -3,7 +3,7 @@ import { NeuroHelix } from "../components/neuro-helix";
 import { NeuroCanvas } from "../components/neuro-canvas";
 import { TerminalType } from "../components/terminal-type";
 import { NeuralBg } from "../components/neural-bg";
-import { Marquee } from "../components/marquee";
+
 import { Reveal, Tilt, Magnetic, CountUp } from "../components/fx";
 import { ShaderGradient } from "../components/shader-gradient";
 import { Scramble } from "../components/scramble";
@@ -185,8 +185,6 @@ function Home() {
         </div>
       </section>
 
-      {/* MARQUEE */}
-      <Marquee items={["Bioinformatics", "Neural Networks", "CRISPR", "Nanomedicine", "Robotics", "Signal Processing", "Genomics"]} />
 
       {/* MANIFESTO / EDITORIAL */}
       <section className="relative mx-auto max-w-[1400px] px-6 py-32">
