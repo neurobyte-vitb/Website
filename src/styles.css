@@ -102,10 +102,20 @@
   background: linear-gradient(135deg, oklch(0.95 0.01 250) 0%, oklch(0.82 0.18 200) 50%, oklch(0.7 0.25 310) 100%);
   -webkit-background-clip: text;
   background-clip: text;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
   color: transparent;
-  padding-right: 0.15em;
-  margin-right: -0.05em;
+  -webkit-text-fill-color: transparent;
+  font-style: normal !important;
+  letter-spacing: 0 !important;
+  padding-inline: 0.04em 0.5em;
+  margin-inline: -0.04em -0.18em;
   display: inline-block;
+  max-width: calc(100% + 0.46em);
+  line-height: 1.18;
+  overflow: visible;
+  transform: skewX(-7deg);
+  transform-origin: left center;
 }
 
 @utility surface-glass {
@@ -209,7 +219,20 @@
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
   color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-style: normal !important;
+  letter-spacing: 0 !important;
+  display: inline-block;
+  padding-inline: 0.04em 0.5em;
+  margin-inline: -0.04em -0.18em;
+  max-width: calc(100% + 0.46em);
+  line-height: 1.18;
+  overflow: visible;
+  transform: skewX(-7deg);
+  transform-origin: left center;
   animation: gradient-shift 6s ease infinite;
 }
 
