@@ -38,7 +38,7 @@ export function NeuroCanvas({ className }: { className?: string }) {
       particles = [];
       edges = [];
 
-      const helixCount = 90;
+      const helixCount = 50;
       const helixX = W * 0.18;
       const amp = Math.min(80, W * 0.07);
       for (let i = 0; i < helixCount; i++) {
@@ -57,7 +57,7 @@ export function NeuroCanvas({ className }: { className?: string }) {
       }
 
       // Neural swarm on the right two-thirds
-      const netCount = 110;
+      const netCount = 60;
       for (let i = 0; i < netCount; i++) {
         const x = W * 0.38 + Math.random() * W * 0.6;
         const y = 20 + Math.random() * (H - 40);
@@ -203,18 +203,18 @@ export function NeuroCanvas({ className }: { className?: string }) {
         }
       }
 
-      // nodes
+      // nodes (optimized without createRadialGradient per frame per node)
       for (const p of particles) {
-        const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 6);
-        glow.addColorStop(0, `oklch(0.9 0.15 ${p.hue} / 0.8)`);
-        glow.addColorStop(1, `oklch(0.9 0.15 ${p.hue} / 0)`);
-        ctx.fillStyle = glow;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * 6, 0, Math.PI * 2);
-        ctx.fill();
+        // Fast, solid color rendering
         ctx.fillStyle = `oklch(0.97 0.08 ${p.hue})`;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.size * 1.5, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Lightweight glow simulation
+        ctx.fillStyle = `oklch(0.9 0.15 ${p.hue} / 0.15)`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size * 4, 0, Math.PI * 2);
         ctx.fill();
       }
 

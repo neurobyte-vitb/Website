@@ -67,12 +67,14 @@ function Home() {
         {/* Live WebGL shader plasma — The NeuroByte Society palette */}
         <ShaderGradient className="absolute inset-0 h-full w-full opacity-70" />
         {/* Cinematic photographic backdrop layered on shader */}
-        <div className="absolute inset-0 mix-blend-overlay">
+        <div className="absolute inset-0">
           <img
             src={heroFusion}
             alt=""
             aria-hidden
-            className="absolute inset-0 w-full h-full object-cover opacity-60 animate-ken-burns"
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover opacity-50 animate-ken-burns"
           />
         </div>
         {/* dark gradient wash so text stays legible */}
@@ -88,10 +90,10 @@ function Home() {
         <div className="absolute right-0 top-0 h-full w-full pointer-events-none md:hidden opacity-40">
           <NeuroHelix className="h-full w-full" />
         </div>
-        {/* Aurora blobs */}
-        <div className="absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-primary/25 blur-[120px] animate-aurora" />
-        <div className="absolute right-1/4 bottom-10 h-80 w-80 rounded-full bg-accent/20 blur-[120px] animate-aurora" style={{ animationDelay: "-6s" }} />
-        <div className="absolute left-1/3 top-1/4 h-64 w-64 rounded-full bg-lime/10 blur-[100px] animate-drift" />
+        {/* Aurora blobs - optimized without expensive CSS blur */}
+        <div className="absolute -left-32 top-1/3 h-96 w-96 rounded-full animate-aurora" style={{ background: "radial-gradient(circle, oklch(0.82 0.18 200 / 0.15), transparent 70%)" }} />
+        <div className="absolute right-1/4 bottom-10 h-80 w-80 rounded-full animate-aurora" style={{ animationDelay: "-6s", background: "radial-gradient(circle, oklch(0.7 0.25 310 / 0.15), transparent 70%)" }} />
+        <div className="absolute left-1/3 top-1/4 h-64 w-64 rounded-full animate-drift" style={{ background: "radial-gradient(circle, oklch(0.88 0.2 140 / 0.1), transparent 70%)" }} />
 
         <div className="relative mx-auto max-w-[1400px] px-6 py-20 w-full">
           <div className="max-w-3xl">
@@ -228,6 +230,7 @@ function Home() {
                   src={neuronCircuit}
                   alt="A neuron whose dendrites branch into circuit traces and DNA — The NeuroByte Society"
                   loading="lazy"
+                  decoding="async"
                   width={1200}
                   height={1200}
                   className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-[1600ms]"
@@ -263,6 +266,7 @@ function Home() {
                   src={proteinAi}
                   alt="Protein structure overlaid with AI attention maps"
                   loading="lazy"
+                  decoding="async"
                   width={1200}
                   height={912}
                   className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-[1600ms]"
@@ -385,8 +389,8 @@ function Home() {
       <section className="relative mx-auto max-w-[1400px] px-6 pb-32">
         <div className="relative surface-dark rounded-3xl overflow-hidden p-10 md:p-16">
           <div className="absolute inset-0 grid-lines opacity-40" />
-          <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-accent/20 blur-[120px] animate-aurora" />
-          <div className="absolute -left-20 -bottom-20 h-80 w-80 rounded-full bg-primary/20 blur-[120px] animate-aurora" style={{ animationDelay: "-4s" }} />
+          <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full animate-aurora" style={{ background: "radial-gradient(circle, oklch(0.7 0.25 310 / 0.15), transparent 70%)" }} />
+          <div className="absolute -left-20 -bottom-20 h-80 w-80 rounded-full animate-aurora" style={{ animationDelay: "-4s", background: "radial-gradient(circle, oklch(0.82 0.18 200 / 0.15), transparent 70%)" }} />
           <div className="relative grid gap-10 md:grid-cols-2 items-center">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-widest text-primary flex items-center gap-2">

@@ -118,9 +118,9 @@
 }
 
 @utility surface-glass {
-  background: linear-gradient(180deg, oklch(0.18 0.03 262 / 0.6) 0%, oklch(0.14 0.02 262 / 0.4) 100%);
+  background: linear-gradient(180deg, oklch(0.18 0.03 262 / 0.7) 0%, oklch(0.14 0.02 262 / 0.5) 100%);
   border: 1px solid oklch(0.35 0.03 260 / 0.4);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(4px);
 }
 @utility surface-dark {
   background: oklch(0.09 0.015 260);
@@ -186,21 +186,21 @@
   50% { opacity: 0.92; }
 }
 
-.animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
-.animate-marquee { animation: marquee 40s linear infinite; }
-.animate-pulse-ring { animation: pulse-ring 3s cubic-bezier(0.1, 0.7, 0.3, 1) infinite; }
-.animate-spin-slow { animation: spin-slow 40s linear infinite; }
+.animate-float-slow { animation: float-slow 8s ease-in-out infinite; will-change: transform; }
+.animate-marquee { animation: marquee 40s linear infinite; will-change: transform; }
+.animate-pulse-ring { animation: pulse-ring 3s cubic-bezier(0.1, 0.7, 0.3, 1) infinite; will-change: transform; }
+.animate-spin-slow { animation: spin-slow 40s linear infinite; will-change: transform; }
 .animate-blink { animation: blink 1.2s step-end infinite; }
-.animate-rise { animation: rise 0.8s ease-out both; }
-.animate-aurora { animation: aurora 18s ease-in-out infinite; }
-.animate-drift { animation: drift 10s ease-in-out infinite; }
+.animate-rise { animation: rise 0.8s ease-out both; will-change: transform; }
+.animate-aurora { animation: aurora 18s ease-in-out infinite; will-change: transform; }
+.animate-drift { animation: drift 10s ease-in-out infinite; will-change: transform; }
 .animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
 
 @keyframes ken-burns {
   0%, 100% { transform: scale(1.05) translate(0, 0); }
   50% { transform: scale(1.14) translate(-1.5%, -1%); }
 }
-.animate-ken-burns { animation: ken-burns 24s ease-in-out infinite; }
+.animate-ken-burns { animation: ken-burns 24s ease-in-out infinite; will-change: transform; }
 
 @keyframes scan-line {
   0% { transform: translateY(-100%); }
