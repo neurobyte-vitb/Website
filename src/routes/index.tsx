@@ -5,6 +5,8 @@ import { TerminalType } from "../components/terminal-type";
 import { NeuralBg } from "../components/neural-bg";
 import { Marquee } from "../components/marquee";
 import { Reveal, Tilt, Magnetic, CountUp } from "../components/fx";
+import { ShaderGradient } from "../components/shader-gradient";
+import { Scramble } from "../components/scramble";
 import heroFusion from "../assets/hero-fusion.jpg";
 import neuronCircuit from "../assets/neuron-circuit.jpg";
 import proteinAi from "../assets/protein-ai.jpg";
@@ -46,18 +48,20 @@ function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden min-h-[100vh] flex items-center">
-        {/* Cinematic photographic backdrop */}
-        <div className="absolute inset-0">
+        {/* Live WebGL shader plasma — bio × ai palette */}
+        <ShaderGradient className="absolute inset-0 h-full w-full opacity-70" />
+        {/* Cinematic photographic backdrop layered on shader */}
+        <div className="absolute inset-0 mix-blend-overlay">
           <img
             src={heroFusion}
             alt=""
             aria-hidden
-            className="absolute inset-0 w-full h-full object-cover opacity-70 animate-ken-burns"
+            className="absolute inset-0 w-full h-full object-cover opacity-60 animate-ken-burns"
           />
-          {/* dark gradient wash so text stays legible */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/10" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />
         </div>
+        {/* dark gradient wash so text stays legible */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
         <div className="absolute inset-0 grid-lines opacity-25" />
         <NeuralBg className="absolute inset-0 opacity-30" />
         {/* Interactive fusion canvas — reacts to your cursor */}
@@ -83,9 +87,9 @@ function Home() {
               <span>/ VIT Bhopal · Est. 2026 · Recruiting now</span>
             </div>
             <h1 className="mt-8 font-display text-[clamp(3rem,10vw,8.5rem)] leading-[0.95] tracking-tighter animate-rise" style={{ animationDelay: "0.1s" }}>
-              <span className="text-foreground">We decode</span>{" "}
+              <Scramble text="We decode" className="text-foreground" />{" "}
               <span className="italic text-gradient-animated">biology</span>{" "}
-              <span className="text-foreground">with</span>{" "}
+              <Scramble text="with" className="text-foreground" speed={30} />{" "}
               <span className="italic text-gradient-animated">code</span>.
             </h1>
             <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed animate-rise" style={{ animationDelay: "0.2s" }}>

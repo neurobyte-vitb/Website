@@ -13,6 +13,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LogoMark } from "../components/logo-mark";
 import { CursorSpotlight, ScrollProgress } from "../components/fx";
+import { CustomCursor } from "../components/custom-cursor";
+import { IntroLoader } from "../components/intro-loader";
 
 function NotFoundComponent() {
   return (
@@ -255,8 +257,10 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
+      <IntroLoader />
       <ScrollProgress />
       <CursorSpotlight />
+      <CustomCursor />
       <div className="min-h-screen flex flex-col relative">
         <SiteHeader />
         <main className="flex-1">
