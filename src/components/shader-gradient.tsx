@@ -66,9 +66,9 @@ export function ShaderGradient({ className = "" }: { className?: string }) {
     const mouse = { x: 0, y: 0 };
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const dpr = Math.min(window.devicePixelRatio || 1, 1);
       const w = canvas.clientWidth, h = canvas.clientHeight;
-      canvas.width = w * dpr; canvas.height = h * dpr;
+      canvas.width = Math.round(w * dpr * 0.75); canvas.height = Math.round(h * dpr * 0.75);
       gl.viewport(0, 0, canvas.width, canvas.height);
       mouse.x = canvas.width / 2; mouse.y = canvas.height / 2;
     };
