@@ -122,18 +122,6 @@
     linear-gradient(90deg, oklch(0.3 0.03 260 / 0.15) 1px, transparent 1px);
   background-size: 60px 60px;
 }
-@utility noise {
-  position: relative;
-}
-@utility noise::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
-  opacity: 0.03;
-  pointer-events: none;
-  mix-blend-mode: overlay;
-}
 
 @keyframes float-slow {
   0%, 100% { transform: translateY(0) rotate(0deg); }
