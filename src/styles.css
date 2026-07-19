@@ -81,7 +81,6 @@
     background-image:
       radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.7 0.25 310 / 0.15), transparent),
       radial-gradient(ellipse 60% 40% at 90% 20%, oklch(0.82 0.18 200 / 0.1), transparent);
-    background-attachment: fixed;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
