@@ -46,22 +46,25 @@ function Home() {
         <div className="absolute right-0 top-0 h-full w-1/2 pointer-events-none hidden md:block">
           <DnaViz className="h-full w-full animate-float-slow" />
         </div>
-        <div className="absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-primary/20 blur-[120px] animate-float-slow" />
-        <div className="absolute right-1/4 bottom-10 h-80 w-80 rounded-full bg-accent/15 blur-[120px]" />
+        {/* Aurora blobs */}
+        <div className="absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-primary/20 blur-[120px] animate-aurora" />
+        <div className="absolute right-1/4 bottom-10 h-80 w-80 rounded-full bg-accent/15 blur-[120px] animate-aurora" style={{ animationDelay: "-6s" }} />
+        <div className="absolute left-1/3 top-1/4 h-64 w-64 rounded-full bg-lime/10 blur-[100px] animate-drift" />
 
         <div className="relative mx-auto max-w-[1400px] px-6 py-20 w-full">
           <div className="max-w-3xl">
             <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.3em] text-primary animate-rise">
-              <span className="h-2 w-2 rounded-full bg-primary animate-pulse-ring relative">
-                <span className="absolute inset-0 rounded-full bg-primary" />
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inset-0 rounded-full bg-primary animate-pulse-ring" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
               <span>/ VIT Bhopal · Est. 2026 · Recruiting now</span>
             </div>
             <h1 className="mt-8 font-display text-[clamp(3rem,10vw,8.5rem)] leading-[0.95] tracking-tighter animate-rise" style={{ animationDelay: "0.1s" }}>
               <span className="text-foreground">We decode</span>{" "}
-              <span className="italic text-gradient-bio">biology</span>{" "}
+              <span className="italic text-gradient-animated">biology</span>{" "}
               <span className="text-foreground">with</span>{" "}
-              <span className="italic text-gradient-bio">code</span>.
+              <span className="italic text-gradient-animated">code</span>.
             </h1>
             <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed animate-rise" style={{ animationDelay: "0.2s" }}>
               The NeuroByte Society is a student research collective at VIT Bhopal building at the
@@ -69,39 +72,51 @@ function Home() {
               healthcare — one experiment at a time.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4 animate-rise" style={{ animationDelay: "0.3s" }}>
-              <Link
-                to="/event"
-                className="group relative inline-flex items-center gap-3 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground overflow-hidden"
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] opacity-0 group-hover:opacity-100 transition-opacity" style={{ animation: "shimmer 2s linear infinite" }} />
-                <span className="relative">Explore BioGenesis</span>
-                <span className="relative">→</span>
-              </Link>
-              <Link
-                to="/projects"
-                className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-foreground hover:text-primary transition-colors"
-              >
-                <span className="h-px w-8 bg-foreground group-hover:bg-primary" />
-                See 15 projects
-              </Link>
+              <Magnetic>
+                <Link
+                  to="/event"
+                  className="group relative inline-flex items-center gap-3 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground overflow-hidden animate-glow-pulse"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] opacity-0 group-hover:opacity-100 transition-opacity" style={{ animation: "shimmer 2s linear infinite" }} />
+                  <span className="relative">Explore BioGenesis</span>
+                  <span className="relative transition-transform group-hover:translate-x-1">→</span>
+                </Link>
+              </Magnetic>
+              <Magnetic strength={0.2}>
+                <Link
+                  to="/projects"
+                  className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-foreground hover:text-primary transition-colors"
+                >
+                  <span className="h-px w-8 bg-foreground/50 group-hover:w-14 group-hover:bg-primary transition-all duration-500" />
+                  See 15 projects
+                </Link>
+              </Magnetic>
             </div>
           </div>
 
-          {/* Corner tick marks */}
-          <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 max-w-4xl animate-rise" style={{ animationDelay: "0.4s" }}>
-            {STATS.map((s) => (
-              <div key={s.l} className="border-l border-primary/40 pl-4">
-                <div className="font-display text-5xl md:text-6xl text-foreground leading-none">{s.k}</div>
-                <div className="mt-2 font-mono text-[10px] uppercase tracking-widest text-primary">{s.l}</div>
-                <div className="mt-1 text-xs text-muted-foreground">{s.s}</div>
-              </div>
+          {/* Stats with count-up */}
+          <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 max-w-4xl">
+            {STATS.map((s, i) => (
+              <Reveal key={s.l} delay={i * 120}>
+                <div className="group border-l border-primary/40 pl-4 hover:border-primary hover:pl-6 transition-all duration-500">
+                  <div className="font-display text-5xl md:text-6xl text-foreground leading-none">
+                    {s.suffix === "∞" ? (
+                      <span className="text-gradient-animated">∞</span>
+                    ) : (
+                      <CountUp to={s.k} />
+                    )}
+                  </div>
+                  <div className="mt-2 font-mono text-[10px] uppercase tracking-widest text-primary">{s.l}</div>
+                  <div className="mt-1 text-xs text-muted-foreground">{s.s}</div>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
 
         {/* Bottom scroll indicator */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground flex flex-col items-center gap-2">
-          <span>scroll</span>
+          <span className="animate-blink">scroll</span>
           <span className="h-8 w-px bg-gradient-to-b from-primary to-transparent" />
         </div>
       </section>
