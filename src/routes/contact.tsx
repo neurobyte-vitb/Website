@@ -55,19 +55,15 @@ function Contact() {
             </div>
           </a>
 
-          <div className="md:col-span-4 surface-glass rounded-3xl p-8 relative overflow-hidden">
+          <div className="md:col-span-4 md:row-span-2 surface-glass rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between">
             <div className="absolute -left-10 -bottom-10 h-32 w-32 rounded-full bg-accent/20 blur-3xl" />
-            <p className="font-mono text-[10px] uppercase tracking-widest text-primary">// Location</p>
-            <p className="mt-4 font-display text-3xl leading-tight">VIT Bhopal</p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Kothrikalan, Sehore<br />Madhya Pradesh, India
-            </p>
-          </div>
-
-          <div className="md:col-span-4 surface-glass rounded-3xl p-8 relative overflow-hidden">
-            <p className="font-mono text-[10px] uppercase tracking-widest text-primary">// Coordinates</p>
-            <p className="mt-4 font-mono text-2xl text-foreground/90">23.078° N</p>
-            <p className="font-mono text-2xl text-foreground/90">76.855° E</p>
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-primary">// Location</p>
+              <p className="mt-4 font-display text-3xl leading-tight">VIT Bhopal</p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Kothrikalan, Sehore<br />Madhya Pradesh, India
+              </p>
+            </div>
           </div>
         </div>
 
