@@ -1,5 +1,5 @@
 // NeuroHelix — DNA double helix on the left morphing into a neural network
-// graph on the right. Represents the bio × AI intersection.
+// graph on the right. Represents The NeuroByte Society intersection.
 export function NeuroHelix({ className }: { className?: string }) {
   const width = 800;
   const height = 700;
