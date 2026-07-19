@@ -16,12 +16,12 @@ type P = { n: string; t: string; d: string; tag: string };
 
 const ALL: P[] = [
   { n: "01", t: "Robotic Arm", d: "A robotic arm engineered for automation and precision tasks.", tag: "Hardware" },
-  { n: "02", t: "AI-Powered Drug Discovery Tool", d: "AI-assisted molecular screening and prediction for candidate compounds.", tag: "AI × Bio" },
+  { n: "02", t: "AI-Powered Drug Discovery Tool", d: "AI-assisted molecular screening and prediction for candidate compounds.", tag: "NeuroByte" },
   { n: "03", t: "Nanomedicine", d: "Nanotechnology concepts for medicine and targeted drug delivery.", tag: "Biotech" },
   { n: "04", t: "GMO / GMC", d: "Applications of genetic engineering in plants and animals.", tag: "Biotech" },
   { n: "05", t: "Protein 3D Visualization (AR/VR)", d: "Interactive AR/VR platform to explore protein structures.", tag: "Visualization" },
   { n: "06", t: "Genetic Ancestry Simulator", d: "NCBI-based simulator for genetic ancestry and evolutionary relationships.", tag: "Genomics" },
-  { n: "07", t: "AI-Driven CRISPR Demo", d: "AI-assisted CRISPR analysis and guide-RNA selection tool.", tag: "AI × Bio" },
+  { n: "07", t: "AI-Driven CRISPR Demo", d: "AI-assisted CRISPR analysis and guide-RNA selection tool.", tag: "NeuroByte" },
   { n: "08", t: "Personalized Take-Home Healthcare Device", d: "Smart, personal monitoring device engineered for home use.", tag: "Healthcare" },
   { n: "09", t: "Smart Plant Pot", d: "Monitors soil moisture, temperature, humidity, and plant health.", tag: "IoT" },
   { n: "10", t: "Agricultural Sensors", d: "IoT sensors for smart farming and precision agriculture.", tag: "IoT" },

@@ -30,9 +30,9 @@ const GALLERY = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "The NeuroByte Society — AI × Bioinformatics · VIT Bhopal" },
+      { title: "The NeuroByte Society — VIT Bhopal" },
       { name: "description", content: "Student research collective at VIT Bhopal decoding biology with code — AI, bioinformatics, biotech, healthcare." },
-      { property: "og:title", content: "The NeuroByte Society — AI × Bioinformatics · VIT Bhopal" },
+      { property: "og:title", content: "The NeuroByte Society — VIT Bhopal" },
       { property: "og:description", content: "Student research collective at VIT Bhopal decoding biology with code — AI, bioinformatics, biotech, healthcare." },
     ],
   }),
@@ -54,7 +54,7 @@ const PILLARS = [
 ];
 
 const FEATURED = [
-  { n: "02", t: "AI-Powered Drug Discovery", tag: "AI × Bio", d: "ML-assisted molecular screening for candidate compounds." },
+  { n: "02", t: "AI-Powered Drug Discovery", tag: "NeuroByte", d: "ML-assisted molecular screening for candidate compounds." },
   { n: "07", t: "AI-Driven CRISPR Demo", tag: "Genomics", d: "Guide-RNA selection augmented by deep learning." },
   { n: "13", t: "Portable ECG Machine", tag: "Hardware", d: "Compact, affordable cardiac monitoring, engineered on campus." },
 ];
@@ -64,7 +64,7 @@ function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden min-h-[100vh] flex items-center">
-        {/* Live WebGL shader plasma — bio × ai palette */}
+        {/* Live WebGL shader plasma — The NeuroByte Society palette */}
         <ShaderGradient className="absolute inset-0 h-full w-full opacity-70" />
         {/* Cinematic photographic backdrop layered on shader */}
         <div className="absolute inset-0 mix-blend-overlay">
@@ -217,7 +217,7 @@ function Home() {
         </div>
       </section>
 
-      {/* INTERSECTION EDITORIAL — visual proof of bio × AI */}
+      {/* INTERSECTION EDITORIAL — visual proof of The NeuroByte Society */}
       <section className="relative mx-auto max-w-[1400px] px-6 pb-32">
         <Reveal>
           <div className="grid gap-4 md:grid-cols-12 md:auto-rows-[280px]">
@@ -226,7 +226,7 @@ function Home() {
               <div className="relative h-full rounded-3xl overflow-hidden surface-glass group">
                 <img
                   src={neuronCircuit}
-                  alt="A neuron whose dendrites branch into circuit traces and DNA — bio × AI"
+                  alt="A neuron whose dendrites branch into circuit traces and DNA — The NeuroByte Society"
                   loading="lazy"
                   width={1200}
                   height={1200}

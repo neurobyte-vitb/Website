@@ -68,13 +68,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "The NeuroByte Society — AI × Bioinformatics · VIT Bhopal" },
+      { title: "The NeuroByte Society — VIT Bhopal" },
       {
         name: "description",
         content:
           "Student research collective at VIT Bhopal decoding biology with code — AI, bioinformatics, biotech, healthcare.",
       },
-      { property: "og:title", content: "The NeuroByte Society — AI × Bioinformatics · VIT Bhopal" },
+      { property: "og:title", content: "The NeuroByte Society — VIT Bhopal" },
       {
         property: "og:description",
         content:
@@ -83,7 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "NeuroByte Society" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "The NeuroByte Society — AI × Bioinformatics · VIT Bhopal" },
+      { name: "twitter:title", content: "The NeuroByte Society — VIT Bhopal" },
       { name: "twitter:description", content: "Student research collective at VIT Bhopal decoding biology with code — AI, bioinformatics, biotech, healthcare." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6131e3b9-de96-49ac-b486-fd80b55a5088/id-preview-1829ad61--9efbb7e9-c450-4309-b22d-1574aade8e67.lovable.app-1784484922719.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6131e3b9-de96-49ac-b486-fd80b55a5088/id-preview-1829ad61--9efbb7e9-c450-4309-b22d-1574aade8e67.lovable.app-1784484922719.png" },
