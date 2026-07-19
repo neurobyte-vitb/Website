@@ -17,10 +17,10 @@ export const Route = createFileRoute("/")({
 });
 
 const STATS = [
-  { k: "15", l: "Active projects", s: "spanning AI, hardware, biotech" },
-  { k: "09", l: "Launch activities", s: "in the BioGenesis event" },
-  { k: "06", l: "Domains", s: "AI · Bio · Health · Robotics" },
-  { k: "∞", l: "Curiosity", s: "the only real prerequisite" },
+  { k: 15, suffix: "", l: "Active projects", s: "spanning AI, hardware, biotech" },
+  { k: 9, suffix: "", l: "Launch activities", s: "in the BioGenesis event" },
+  { k: 6, suffix: "", l: "Domains", s: "AI · Bio · Health · Robotics" },
+  { k: 0, suffix: "∞", l: "Curiosity", s: "the only real prerequisite" },
 ];
 
 const PILLARS = [
