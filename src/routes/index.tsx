@@ -165,23 +165,35 @@ function Home() {
         </div>
         <div className="grid gap-4 md:grid-cols-12 md:auto-rows-[180px]">
           {PILLARS.map((p, i) => (
-            <div
+            <Reveal
               key={p.n}
-              className={`surface-glass rounded-2xl p-8 group hover:border-primary/60 transition-all duration-500 relative overflow-hidden
+              delay={i * 100}
+              className={`
                 ${i === 0 ? "md:col-span-5 md:row-span-2" : ""}
                 ${i === 1 ? "md:col-span-7" : ""}
                 ${i === 2 ? "md:col-span-4" : ""}
                 ${i === 3 ? "md:col-span-3" : ""}`}
             >
-              <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary/0 group-hover:bg-primary/20 blur-3xl transition-all duration-700" />
-              <div className="relative flex flex-col h-full justify-between">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-primary/70">{p.n}</span>
-                <div>
-                  <h3 className="font-display text-3xl md:text-4xl">{p.t}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{p.d}</p>
+              <Tilt max={6} className="h-full">
+                <div className="surface-glass rounded-2xl p-8 group hover:border-primary/60 transition-all duration-500 relative overflow-hidden h-full">
+                  <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary/0 group-hover:bg-primary/30 blur-3xl transition-all duration-700" />
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{
+                      background:
+                        "radial-gradient(600px circle at var(--mx,50%) var(--my,50%), oklch(0.7 0.25 310 / 0.1), transparent 40%)",
+                    }}
+                  />
+                  <div className="relative flex flex-col h-full justify-between">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-primary/70">{p.n}</span>
+                    <div>
+                      <h3 className="font-display text-3xl md:text-4xl transition-transform duration-500 group-hover:translate-x-1">{p.t}</h3>
+                      <p className="mt-3 text-sm text-muted-foreground">{p.d}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </Tilt>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -195,9 +207,10 @@ function Home() {
           </div>
           <Link
             to="/projects"
-            className="font-mono text-[11px] uppercase tracking-widest text-primary hover:text-foreground transition-colors"
+            className="group font-mono text-[11px] uppercase tracking-widest text-primary hover:text-foreground transition-colors inline-flex items-center gap-2"
           >
-            All projects →
+            All projects
+            <span className="transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
