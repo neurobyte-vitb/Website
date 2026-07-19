@@ -17,19 +17,17 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+        <p className="font-mono text-xs uppercase tracking-widest text-primary">Error 404</p>
+        <h1 className="mt-2 font-display text-7xl">Not found.</h1>
+        <p className="mt-4 text-sm text-muted-foreground">
+          This sequence doesn't exist in our genome.
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
-        </div>
+        <Link
+          to="/"
+          className="mt-6 inline-flex rounded-full border border-primary/40 bg-primary/10 px-5 py-2.5 text-sm text-primary hover:bg-primary/20"
+        >
+          Return home →
+        </Link>
       </div>
     </div>
   );
@@ -41,30 +39,21 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
-
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight">This page didn't load</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+        <h1 className="font-display text-4xl">Something ruptured.</h1>
+        <p className="mt-3 text-sm text-muted-foreground">
+          The page failed to mount. Try again or head home.
         </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
+        <div className="mt-6 flex justify-center gap-2">
           <button
-            onClick={() => {
-              router.invalidate();
-              reset();
-            }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            onClick={() => { router.invalidate(); reset(); }}
+            className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
           >
-            Try again
+            Retry
           </button>
-          <a
-            href="/"
-            className="inline-flex items-center justify-center rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-          >
-            Go home
-          </a>
+          <a href="/" className="rounded-full border border-border px-4 py-2 text-sm">Home</a>
         </div>
       </div>
     </div>
@@ -76,17 +65,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "The NeuroByte Society — VIT Bhopal" },
+      { title: "The NeuroByte Society — AI × Bioinformatics · VIT Bhopal" },
       {
         name: "description",
         content:
-          "The NeuroByte Society at VIT Bhopal — a student club at the intersection of AI, Bioinformatics, Biotechnology, and Healthcare.",
+          "A student research collective at VIT Bhopal engineering the intersection of artificial intelligence, bioinformatics, biotechnology, and healthcare.",
       },
       { property: "og:title", content: "The NeuroByte Society — VIT Bhopal" },
       {
         property: "og:description",
         content:
-          "AI × Bioinformatics × Biotech. Projects, workshops, hackathons, and research at VIT Bhopal.",
+          "15 projects. 9 activities. One mission — decode biology with code. Join the NeuroByte Society at VIT Bhopal.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "NeuroByte Society" },
@@ -99,7 +88,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap",
       },
     ],
   }),
@@ -112,40 +101,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="dark">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
+      <head><HeadContent /></head>
+      <body>{children}<Scripts /></body>
     </html>
   );
 }
 
 const NAV = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/projects", label: "Projects" },
-  { to: "/event", label: "Event" },
-  { to: "/team", label: "Team" },
-  { to: "/sponsors", label: "Sponsors" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", label: "Index", num: "00" },
+  { to: "/about", label: "About", num: "01" },
+  { to: "/projects", label: "Projects", num: "02" },
+  { to: "/event", label: "Event", num: "03" },
+  { to: "/team", label: "Team", num: "04" },
+  { to: "/sponsors", label: "Sponsors", num: "05" },
+  { to: "/contact", label: "Contact", num: "06" },
 ] as const;
 
 function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <header className="sticky top-0 z-40 border-b border-border/40 bg-background/70 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4">
         <Link to="/" className="flex items-center gap-3 group">
-          <LogoMark className="h-8 w-8 text-silver transition-transform group-hover:rotate-45" />
+          <div className="relative">
+            <LogoMark className="h-9 w-9 transition-transform group-hover:rotate-90 duration-700" />
+            <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl -z-10" />
+          </div>
           <div className="flex flex-col leading-none">
-            <span className="font-display text-sm font-bold tracking-wide text-silver">
-              NeuroByte
-            </span>
-            <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-              Society
+            <span className="font-display text-lg tracking-tight text-foreground">NeuroByte</span>
+            <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground">
+              society · est.2026
             </span>
           </div>
         </Link>
@@ -154,10 +139,11 @@ function SiteHeader() {
             <Link
               key={item.to}
               to={item.to}
-              className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-              activeProps={{ className: "rounded-md px-3 py-2 text-sm text-foreground font-medium" }}
+              className="group relative rounded-md px-3 py-2 font-mono text-[11px] uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
+              activeProps={{ className: "rounded-md px-3 py-2 font-mono text-[11px] uppercase tracking-widest text-primary" }}
               activeOptions={{ exact: item.to === "/" }}
             >
+              <span className="text-[9px] opacity-50 mr-1">{item.num}</span>
               {item.label}
             </Link>
           ))}
@@ -165,14 +151,15 @@ function SiteHeader() {
         <div className="flex items-center gap-2">
           <Link
             to="/sponsors"
-            className="hidden sm:inline-flex items-center rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-primary transition-colors hover:bg-primary/20"
           >
-            Sponsor us
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+            Partner
           </Link>
           <button
             onClick={() => setOpen((v) => !v)}
             className="lg:hidden rounded-md border border-border p-2 text-muted-foreground"
-            aria-label="Toggle navigation"
+            aria-label="Menu"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <line x1="3" y1="6" x2="21" y2="6" />
@@ -183,16 +170,16 @@ function SiteHeader() {
         </div>
       </div>
       {open && (
-        <div className="lg:hidden border-t border-border/60 px-6 py-3">
+        <div className="lg:hidden border-t border-border/40 px-6 py-3">
           <nav className="flex flex-col gap-1">
             {NAV.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground"
+                className="rounded-md px-3 py-2 font-mono text-xs uppercase tracking-widest text-muted-foreground hover:bg-secondary hover:text-foreground"
               >
-                {item.label}
+                <span className="opacity-50 mr-2">{item.num}</span>{item.label}
               </Link>
             ))}
           </nav>
@@ -204,46 +191,55 @@ function SiteHeader() {
 
 function SiteFooter() {
   return (
-    <footer className="border-t border-border/60 mt-24">
-      <div className="mx-auto max-w-7xl px-6 py-12 grid gap-8 md:grid-cols-3">
-        <div>
-          <div className="flex items-center gap-3">
-            <LogoMark className="h-7 w-7 text-silver" />
-            <span className="font-display font-semibold text-silver">NeuroByte Society</span>
+    <footer className="relative border-t border-border/40 mt-32 overflow-hidden">
+      <div className="absolute inset-0 grid-lines opacity-30" />
+      <div className="relative mx-auto max-w-[1400px] px-6 py-16">
+        <div className="grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <div className="flex items-center gap-3">
+              <LogoMark className="h-10 w-10" />
+              <span className="font-display text-2xl">NeuroByte Society</span>
+            </div>
+            <p className="mt-5 text-sm text-muted-foreground max-w-sm leading-relaxed">
+              Decoding biology with code at VIT Bhopal. A student collective at the frontier of
+              AI, bioinformatics, biotechnology, and healthcare.
+            </p>
+            <p className="mt-6 font-mono text-[10px] uppercase tracking-widest text-primary">
+              [ 23.078° N · 76.855° E ]
+            </p>
           </div>
-          <p className="mt-3 text-sm text-muted-foreground max-w-xs">
-            A student research club at VIT Bhopal exploring AI, Bioinformatics, Biotechnology, and Healthcare.
-          </p>
+          <div className="md:col-span-3">
+            <h4 className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-4">Navigate</h4>
+            <ul className="space-y-2.5 text-sm">
+              {NAV.map((n) => (
+                <li key={n.to}>
+                  <Link to={n.to} className="text-foreground/80 hover:text-primary transition-colors">
+                    <span className="font-mono text-[10px] opacity-40 mr-2">{n.num}</span>
+                    {n.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="md:col-span-4">
+            <h4 className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-4">Signal</h4>
+            <p className="text-sm text-muted-foreground">
+              VIT Bhopal University<br />Kothrikalan, Sehore, MP<br />India
+            </p>
+            <Link
+              to="/contact"
+              className="mt-4 inline-flex items-center gap-2 font-display text-2xl italic text-primary hover:text-foreground transition-colors"
+            >
+              Reach out →
+            </Link>
+          </div>
         </div>
-        <div>
-          <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Explore</h4>
-          <ul className="space-y-2 text-sm">
-            {NAV.map((n) => (
-              <li key={n.to}>
-                <Link to={n.to} className="text-foreground/80 hover:text-foreground">
-                  {n.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Reach out</h4>
-          <p className="text-sm text-muted-foreground">
-            VIT Bhopal University <br /> Kothrikalan, Sehore, MP
-          </p>
-          <Link
-            to="/contact"
-            className="mt-3 inline-block text-sm text-primary hover:underline"
-          >
-            Get in touch →
-          </Link>
-        </div>
-      </div>
-      <div className="border-t border-border/60">
-        <div className="mx-auto max-w-7xl px-6 py-5 text-xs text-muted-foreground flex flex-wrap justify-between gap-2">
-          <span>© {new Date().getFullYear()} The NeuroByte Society. VIT Bhopal.</span>
-          <span>Built with care by our members.</span>
+        <div className="mt-16 pt-6 border-t border-border/40 flex flex-wrap justify-between gap-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+          <span>© {new Date().getFullYear()} NeuroByte Society</span>
+          <span className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
+            System online
+          </span>
         </div>
       </div>
     </footer>
