@@ -63,7 +63,7 @@ function Sponsors() {
         <div className="relative mx-auto max-w-[1400px] px-6 py-24 md:py-32">
           <p className="font-mono text-[10px] uppercase tracking-widest text-primary">[ 05 ] Sponsorship</p>
           <h1 className="mt-6 font-display text-[clamp(2.5rem,8vw,7rem)] leading-[0.9] tracking-tighter max-w-5xl">
-            Partner with the next generation of <span className="italic text-gradient-bio">AI × Bio</span> talent.
+            Partner with <span className="italic text-gradient-bio">The NeuroByte Society</span>.
           </h1>
           <p className="mt-8 text-lg text-muted-foreground max-w-2xl leading-relaxed">
             Sponsor The NeuroByte Society and put your brand in front of the students building the
