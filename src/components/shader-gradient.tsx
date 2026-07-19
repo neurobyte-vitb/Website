@@ -23,7 +23,7 @@ export function ShaderGradient({ className = "" }: { className?: string }) {
       float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
       float n(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.-2.*f);
         return mix(mix(h(i),h(i+vec2(1,0)),u.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),u.x),u.y);}
-      float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*n(p);p*=2.02;a*=.5;}return v;}
+      float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<3;i++){v+=a*n(p);p*=2.02;a*=.5;}return v;}
       void main(){
         vec2 uv=(gl_FragCoord.xy-.5*uR)/uR.y;
         vec2 m=(uM-.5*uR)/uR.y;
@@ -66,9 +66,9 @@ export function ShaderGradient({ className = "" }: { className?: string }) {
     const mouse = { x: 0, y: 0 };
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const dpr = Math.min(window.devicePixelRatio || 1, 1);
       const w = canvas.clientWidth, h = canvas.clientHeight;
-      canvas.width = w * dpr; canvas.height = h * dpr;
+      canvas.width = Math.round(w * dpr * 0.75); canvas.height = Math.round(h * dpr * 0.75);
       gl.viewport(0, 0, canvas.width, canvas.height);
       mouse.x = canvas.width / 2; mouse.y = canvas.height / 2;
     };
@@ -83,16 +83,21 @@ export function ShaderGradient({ className = "" }: { className?: string }) {
 
     const start = performance.now();
     let raf = 0;
+    let visible = true;
+    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: 0 });
+    io.observe(canvas);
     const tick = () => {
-      const t = (performance.now() - start) / 1000;
-      gl.uniform2f(uR, canvas.width, canvas.height);
-      gl.uniform1f(uT, reduced ? 0 : t);
-      gl.uniform2f(uM, mouse.x, mouse.y);
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      if (visible) {
+        const t = (performance.now() - start) / 1000;
+        gl.uniform2f(uR, canvas.width, canvas.height);
+        gl.uniform1f(uT, reduced ? 0 : t);
+        gl.uniform2f(uM, mouse.x, mouse.y);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      }
       raf = requestAnimationFrame(tick);
     };
     tick();
-    return () => { cancelAnimationFrame(raf); ro.disconnect(); window.removeEventListener("mousemove", onMove); };
+    return () => { cancelAnimationFrame(raf); ro.disconnect(); io.disconnect(); window.removeEventListener("mousemove", onMove); };
   }, []);
 
   return <canvas ref={ref} className={className} aria-hidden />;

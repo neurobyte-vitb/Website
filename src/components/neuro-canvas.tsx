@@ -13,8 +13,11 @@ export function NeuroCanvas({ className }: { className?: string }) {
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    let W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 1.25);
     const mouse = { x: -9999, y: -9999, active: false };
+    let visible = true;
+    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: 0 });
+    io.observe(canvas);
 
     type P = {
       x: number; y: number; vx: number; vy: number;
@@ -215,12 +218,17 @@ export function NeuroCanvas({ className }: { className?: string }) {
         ctx.fill();
       }
 
-      raf = requestAnimationFrame(step);
+      raf = requestAnimationFrame(loop);
     };
-    raf = requestAnimationFrame(step);
+    const loop = () => {
+      if (visible) step();
+      else raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
 
     return () => {
       cancelAnimationFrame(raf);
+      io.disconnect();
       window.removeEventListener("resize", onResize);
       canvas.removeEventListener("mousemove", onMove);
       canvas.removeEventListener("mouseleave", onLeave);
