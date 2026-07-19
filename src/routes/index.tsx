@@ -30,9 +30,9 @@ const GALLERY = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "The NeuroByte Society — AI × Bioinformatics · VIT Bhopal" },
+      { title: "The NeuroByte Society — VIT Bhopal" },
       { name: "description", content: "Student research collective at VIT Bhopal decoding biology with code — AI, bioinformatics, biotech, healthcare." },
-      { property: "og:title", content: "The NeuroByte Society — AI × Bioinformatics · VIT Bhopal" },
+      { property: "og:title", content: "The NeuroByte Society — VIT Bhopal" },
       { property: "og:description", content: "Student research collective at VIT Bhopal decoding biology with code — AI, bioinformatics, biotech, healthcare." },
     ],
   }),
