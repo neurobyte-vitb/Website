@@ -151,6 +151,27 @@
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
+@keyframes aurora {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(4%, -3%) scale(1.08); }
+  66% { transform: translate(-3%, 4%) scale(0.95); }
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(20px, -20px); }
+}
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.82 0.18 200 / 0.5), 0 0 40px -10px oklch(0.82 0.18 200 / 0.3); }
+  50% { box-shadow: 0 0 0 8px oklch(0.82 0.18 200 / 0), 0 0 80px -10px oklch(0.82 0.18 200 / 0.7); }
+}
+@keyframes text-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.92; }
+}
 
 .animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
 .animate-marquee { animation: marquee 40s linear infinite; }
@@ -158,3 +179,47 @@
 .animate-spin-slow { animation: spin-slow 40s linear infinite; }
 .animate-blink { animation: blink 1.2s step-end infinite; }
 .animate-rise { animation: rise 0.8s ease-out both; }
+.animate-aurora { animation: aurora 18s ease-in-out infinite; }
+.animate-drift { animation: drift 10s ease-in-out infinite; }
+.animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
+
+@utility text-gradient-animated {
+  background: linear-gradient(90deg,
+    oklch(0.95 0.01 250) 0%,
+    oklch(0.82 0.18 200) 25%,
+    oklch(0.7 0.25 310) 50%,
+    oklch(0.88 0.2 140) 75%,
+    oklch(0.95 0.01 250) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 6s ease infinite;
+}
+
+@utility hover-lift {
+  transition: transform 400ms cubic-bezier(.2,.7,.2,1), box-shadow 400ms ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: oklch(0.1 0.02 260); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, oklch(0.82 0.18 200 / 0.5), oklch(0.7 0.25 310 / 0.5));
+  border-radius: 10px;
+  border: 2px solid oklch(0.1 0.02 260);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, oklch(0.82 0.18 200 / 0.8), oklch(0.7 0.25 310 / 0.8));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
