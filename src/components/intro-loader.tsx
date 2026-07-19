@@ -37,10 +37,8 @@ export function IntroLoader() {
       </div>
       <div className="relative text-center">
         <div className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-4">/ NeuroByte boot sequence</div>
-        <div className="font-display text-5xl md:text-7xl tracking-tighter">
-          <span className="text-foreground">bio</span>
-          <span className="text-primary">·</span>
-          <span className="italic text-foreground">ai</span>
+        <div className="font-display text-4xl md:text-6xl tracking-tighter">
+          The Neuro<span className="italic text-primary">Byte</span> Society
         </div>
         <div className="mt-6 font-mono text-xs text-foreground/80 h-5">{line}<span className="animate-blink">▍</span></div>
         <div className="mt-4 mx-auto h-px w-64 bg-border overflow-hidden">
