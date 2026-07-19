@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { DnaViz } from "../components/dna-viz";
 import { NeuralBg } from "../components/neural-bg";
 import { Marquee } from "../components/marquee";
+import { Reveal, Tilt, Magnetic, CountUp } from "../components/fx";
 
 export const Route = createFileRoute("/")({
   head: () => ({
