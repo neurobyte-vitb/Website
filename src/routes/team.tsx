@@ -25,11 +25,11 @@ type Member = {
 };
 
 const BOARD: Member[] = [
-  { name: "Adil Sukumar", role: "President", regNo: "25MIB10056", program: "Int. M.Tech AI & Bioinformatics", batch: "2025", email: "adil.25mib10056@vitbhopal.ac.in", tone: "primary" },
-  { name: "Anakha Shaji", role: "Vice President", regNo: "25MIB10003", program: "Int. M.Tech AI & Bioinformatics", batch: "2025", email: "anakha.25mib10003@vitbhopal.ac.in", tone: "accent" },
-  { name: "Snehal Dixit", role: "Acting Secretary", regNo: "25MIP10072", program: "Int. M.Tech Computational & Data Science", batch: "2025", email: "snehal.25mip10072@vitbhopal.ac.in", tone: "primary" },
-  { name: "Riddhi Garg", role: "General Secretary", regNo: "25BHI10004", program: "B.Tech CSE (Health Informatics)", batch: "2025", email: "riddhi.25BHI10004@vitbhopal.ac.in", tone: "accent" },
-  { name: "Vishwa Namdeo Badgujar", role: "General Secretary", regNo: "25BCY10098", program: "B.Tech CSE (Cyber Security & Digital Forensics)", batch: "2025", email: "vishwa.25bcy10098@vitbhopal.ac.in", tone: "primary" },
+  { name: "Adil Sukumar", role: "President", regNo: "25MIB10056", program: "Int. M.Tech AI & Bioinformatics", batch: "2025", email: "adil.25mib10056@vitbhopal.ac.in", linkedin: "https://linkedin.com/in/adilsukumar", tone: "primary" },
+  { name: "Anakha Shaji", role: "Vice President", regNo: "25MIB10003", program: "Int. M.Tech AI & Bioinformatics", batch: "2025", email: "anakha.25mib10003@vitbhopal.ac.in", linkedin: "https://www.linkedin.com/in/anakha-shaji-8361b3387/", tone: "accent" },
+  { name: "Snehal Dixit", role: "Joint Secretary", regNo: "25MIP10072", program: "Int. M.Tech Computational & Data Science", batch: "2025", email: "snehal.25mip10072@vitbhopal.ac.in", linkedin: "https://linkedin.com/in/snehaldixitofficial", tone: "primary" },
+  { name: "Riddhi Garg", role: "General Secretary", regNo: "25BHI10004", program: "B.Tech CSE (Health Informatics)", batch: "2025", email: "riddhi.25BHI10004@vitbhopal.ac.in", linkedin: "https://www.linkedin.com/in/riddhigarg--/", tone: "accent" },
+  { name: "Vishwa Namdeo Badgujar", role: "General Secretary", regNo: "25BCY10098", program: "B.Tech CSE (Cyber Security & Digital Forensics)", batch: "2025", email: "vishwa.25bcy10098@vitbhopal.ac.in", linkedin: "https://www.linkedin.com/in/vishwa-badgujar-bb747037b/", tone: "primary" },
   { name: "Trisha Kapadia", role: "Treasurer", regNo: "24BAI10659", program: "B.Tech CSE (AIML)", batch: "2024", email: "trisha.24bai10659@vitbhopal.ac.in", tone: "accent" },
 ];
 
@@ -87,14 +87,30 @@ function Avatar({ name, tone, size = "md" }: { name: string; tone: "primary" | "
   );
 }
 
-function LinkedInLink({ href }: { href: string }) {
+function LinkedInLink({ href, variant = "badge" }: { href: string; variant?: "badge" | "button" }) {
+  if (variant === "button") {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn profile"
+        className="inline-flex items-center gap-2 rounded-full border border-[#0A66C2]/60 bg-[#0A66C2]/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-[#4aa8ff] hover:bg-[#0A66C2]/20 hover:border-[#0A66C2] transition-colors"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" className="h-3.5 w-3.5">
+          <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3v9zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
+        </svg>
+        LinkedIn
+      </a>
+    );
+  }
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="LinkedIn profile"
-      className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/10 px-2.5 py-1 font-mono text-[9px] uppercase tracking-widest text-primary hover:bg-primary/20 hover:border-primary transition-colors"
+      className="inline-flex items-center gap-1.5 rounded-full border border-[#0A66C2]/40 bg-[#0A66C2]/10 px-2.5 py-1 font-mono text-[9px] uppercase tracking-widest text-[#4aa8ff] hover:bg-[#0A66C2]/20 hover:border-[#0A66C2] transition-colors"
     >
       <svg viewBox="0 0 24 24" fill="currentColor" className="h-3 w-3">
         <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3v9zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
@@ -104,7 +120,7 @@ function LinkedInLink({ href }: { href: string }) {
   );
 }
 
-function MemberMeta({ m }: { m: Member }) {
+function MemberMeta({ m, showLinkedIn = true }: { m: Member; showLinkedIn?: boolean }) {
   return (
     <div className="mt-3 space-y-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
       <div>{m.regNo} · Batch {m.batch}</div>
@@ -112,9 +128,9 @@ function MemberMeta({ m }: { m: Member }) {
       <a href={`mailto:${m.email}`} className="block normal-case tracking-normal text-primary hover:underline break-all">
         {m.email}
       </a>
-      {m.linkedin && (
-        <div className="pt-1">
-          <LinkedInLink href={m.linkedin} />
+      {showLinkedIn && m.linkedin && (
+        <div className="pt-2">
+          <LinkedInLink href={m.linkedin} variant="button" />
         </div>
       )}
     </div>
@@ -154,51 +170,36 @@ function Team() {
           </span>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-12 md:auto-rows-[280px]">
-          {BOARD.map((m, i) => {
-            const layouts = [
-              "md:col-span-6 md:row-span-2",
-              "md:col-span-6",
-              "md:col-span-3",
-              "md:col-span-3",
-              "md:col-span-3",
-              "md:col-span-3",
-            ];
-            const big = i === 0;
-            return (
-              <Reveal key={m.regNo} delay={i * 80} className={layouts[i]}>
-                <Tilt max={big ? 5 : 8} className="h-full">
-                  <article
-                    className={`group relative rounded-3xl p-6 md:p-8 overflow-hidden transition-all duration-500 h-full ${
-                      big ? "surface-dark border border-primary/40" : "surface-glass"
-                    }`}
-                  >
-                    <div className={`absolute inset-0 grid-lines opacity-${big ? "40" : "20"}`} />
-                    <div className={`absolute -right-16 -top-16 h-40 w-40 rounded-full blur-3xl transition-all duration-700 ${
-                      m.tone === "primary" ? "bg-primary/20 group-hover:bg-primary/50" : "bg-accent/20 group-hover:bg-accent/50"
-                    }`} />
-                    <div className="relative h-full flex flex-col justify-between gap-4">
-                      <div className="flex items-start justify-between">
-                        <Avatar name={m.name} tone={m.tone} size={big ? "lg" : "md"} />
-                        <span className="font-mono text-[9px] uppercase tracking-widest text-primary">
-                          /{(i + 1).toString().padStart(2, "0")}
-                        </span>
-                      </div>
-                      <div>
-                        <h3 className={`font-display leading-tight ${big ? "text-4xl md:text-5xl" : "text-xl"}`}>
-                          {m.name}
-                        </h3>
-                        <p className={`mt-1 italic text-gradient-bio ${big ? "font-display text-2xl" : "text-sm"}`}>
-                          {m.role}
-                        </p>
-                        <MemberMeta m={m} />
-                      </div>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {BOARD.map((m, i) => (
+            <Reveal key={m.regNo} delay={i * 70}>
+              <Tilt max={8} className="h-full">
+                <article className="group relative h-full rounded-3xl surface-glass overflow-hidden transition-all duration-500 hover:border-primary/60">
+                  <div className="absolute inset-0 grid-lines opacity-20" />
+                  <div className={`absolute -right-12 -top-12 h-32 w-32 rounded-full blur-3xl transition-all duration-700 ${
+                    m.tone === "primary" ? "bg-primary/20 group-hover:bg-primary/45" : "bg-accent/20 group-hover:bg-accent/45"
+                  }`} />
+                  <div className="relative flex h-full flex-col p-6 md:p-7">
+                    <div className="flex items-start justify-between">
+                      <Avatar name={m.name} tone={m.tone} size="md" />
+                      <span className="font-mono text-[9px] uppercase tracking-widest text-primary">
+                        /{(i + 1).toString().padStart(2, "0")}
+                      </span>
                     </div>
-                  </article>
-                </Tilt>
-              </Reveal>
-            );
-          })}
+                    <div className="mt-6">
+                      <h3 className="font-display text-2xl leading-tight">
+                        {m.name}
+                      </h3>
+                      <p className="mt-1 text-sm italic text-gradient-bio">
+                        {m.role}
+                      </p>
+                      <MemberMeta m={m} />
+                    </div>
+                  </div>
+                </article>
+              </Tilt>
+            </Reveal>
+          ))}
         </div>
       </section>
 
