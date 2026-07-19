@@ -195,46 +195,46 @@ function Team() {
 
         <div className="space-y-6">
           {VERTICALS.map((v, i) => (
-            <article
-              key={v.name}
-              className="group relative rounded-3xl surface-glass overflow-hidden"
-            >
-              <div className="absolute inset-0 grid-lines opacity-15" />
-              <div className="relative grid gap-6 md:grid-cols-12 p-6 md:p-8">
-                {/* Label */}
-                <div className="md:col-span-3 flex md:flex-col justify-between md:justify-start gap-4 md:border-r md:border-border/40 md:pr-6">
-                  <div>
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-primary">
-                      V/{(i + 1).toString().padStart(2, "0")}
-                    </span>
-                    <h3 className="mt-2 font-display text-2xl md:text-3xl leading-tight">{v.name}</h3>
-                    <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                      {v.tag}
-                    </p>
+            <Reveal key={v.name} delay={i * 80}>
+              <article className="group relative rounded-3xl surface-glass overflow-hidden hover:border-primary/60 transition-colors duration-500">
+                <div className="absolute inset-0 grid-lines opacity-15" />
+                <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-primary via-accent to-lime scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-700" />
+                <div className="relative grid gap-6 md:grid-cols-12 p-6 md:p-8">
+                  {/* Label */}
+                  <div className="md:col-span-3 flex md:flex-col justify-between md:justify-start gap-4 md:border-r md:border-border/40 md:pr-6">
+                    <div>
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-primary">
+                        V/{(i + 1).toString().padStart(2, "0")}
+                      </span>
+                      <h3 className="mt-2 font-display text-2xl md:text-3xl leading-tight transition-transform duration-500 group-hover:translate-x-1">{v.name}</h3>
+                      <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                        {v.tag}
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                {/* Lead */}
-                <div className="md:col-span-5 flex gap-4 items-start md:border-r md:border-border/40 md:pr-6">
-                  <Avatar name={v.lead.name} tone={v.lead.tone} />
-                  <div className="min-w-0">
-                    <p className="font-mono text-[9px] uppercase tracking-widest text-primary">Lead</p>
-                    <h4 className="mt-1 font-display text-xl leading-tight">{v.lead.name}</h4>
-                    <MemberMeta m={v.lead} />
+                  {/* Lead */}
+                  <div className="md:col-span-5 flex gap-4 items-start md:border-r md:border-border/40 md:pr-6">
+                    <Avatar name={v.lead.name} tone={v.lead.tone} />
+                    <div className="min-w-0">
+                      <p className="font-mono text-[9px] uppercase tracking-widest text-primary">Lead</p>
+                      <h4 className="mt-1 font-display text-xl leading-tight">{v.lead.name}</h4>
+                      <MemberMeta m={v.lead} />
+                    </div>
                   </div>
-                </div>
 
-                {/* Co-Lead */}
-                <div className="md:col-span-4 flex gap-4 items-start">
-                  <Avatar name={v.coLead.name} tone={v.coLead.tone} />
-                  <div className="min-w-0">
-                    <p className="font-mono text-[9px] uppercase tracking-widest text-accent">Co-Lead</p>
-                    <h4 className="mt-1 font-display text-xl leading-tight">{v.coLead.name}</h4>
-                    <MemberMeta m={v.coLead} />
+                  {/* Co-Lead */}
+                  <div className="md:col-span-4 flex gap-4 items-start">
+                    <Avatar name={v.coLead.name} tone={v.coLead.tone} />
+                    <div className="min-w-0">
+                      <p className="font-mono text-[9px] uppercase tracking-widest text-accent">Co-Lead</p>
+                      <h4 className="mt-1 font-display text-xl leading-tight">{v.coLead.name}</h4>
+                      <MemberMeta m={v.coLead} />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </article>
+              </article>
+            </Reveal>
           ))}
         </div>
       </section>
